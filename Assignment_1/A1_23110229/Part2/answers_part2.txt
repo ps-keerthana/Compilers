@@ -1,0 +1,13 @@
+a. Number of arithmetic instructions in optimize_O0.s: 5
+   addl $2, -4(%rbp)  [x += 2]
+   addl $2, -4(%rbp)  [x += 2] 
+   subl $1, -4(%rbp)  [--x]
+   addl $5, -4(%rbp)  [x += 5]
+   addl $1, -4(%rbp)  [++x]
+
+b. Number of arithmetic instructions in optimize_O2.s: 0
+   Can be verified with 'grep -E 'addl|subl|incl|decl' optimize_O2.s → 0 results.
+
+c. Compiler optimized all operations to x = 9 (0+2+2-1+5+1).
+   O2.s shows movl $9, %edx directly to printf (constant folding).
+   

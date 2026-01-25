@@ -1,0 +1,21 @@
+a. Three main changes in hello.i compared to hello.c:
+    1. The #include <stdio.h> is gone - replaced by 100s of lines with full stdio.h contents (all those typedefs like FILE, printf declarations, etc.)
+
+    2. The #define MESSAGE "Hello from CS327" is expanded - now printf uses "Hello from CS327" directly instead of MESSAGE
+
+    3. Lots of new # lines appeared (like # 1 "hello.c", # 1 "/usr/include/stdio.h") - these are line markers telling compiler where code came from
+
+b. hello.s has 45 lines( can also be checked with wc -l hello.s)
+    First 10 lines:
+        - .file "hello.c" - tells assembler source file name
+        - .text - switch to executable code section  
+        - .section .rodata - switch to read-only data section
+        - .LC0: - label for our string data
+        - .string "Hello from CS327" - store the message here
+        - .text - back to code section
+        - .globl main - make main function visible to linker
+        - .type main, @function - declare main as a function
+        - main: - start of main function
+        - .LFB0: - local function begin label for debugging
+
+c. Used `ls -l hello.o hello` since these are binary files. Got: hello.o = 1504 bytes, hello = 15960 bytes. hello is ~10x larger .hello.o contains just my main() code + string, while final hello includes stdio library code, startup routines, and OS metadata needed to actually run the program.
