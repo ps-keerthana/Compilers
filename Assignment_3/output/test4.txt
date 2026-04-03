@@ -1,0 +1,21 @@
+─────────────────────────────────────────────────────────────
+  CS327 LALR(1) Parser
+  Input file : tests/test4.c
+─────────────────────────────────────────────────────────────
+
+
+╔══════════════════════════════════════════════════════════════╗
+║                       PARSE ERROR                            ║
+╚══════════════════════════════════════════════════════════════╝
+  Line         : 14
+  Near token   : 'int'
+  Lookahead    : int (token id 258)
+  Message      : syntax error
+
+  Hints:
+    - Missing ';' at end of statement?
+    - Unmatched '{', '}', '(', or ')'?
+    - Invalid expression near line 14?
+    - Declaration after statement (C89 mode)?
+      (Move all declarations to the top of the block.)
+

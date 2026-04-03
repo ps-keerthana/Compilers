@@ -1,0 +1,1466 @@
+─────────────────────────────────────────────────────────────
+  CS327 LALR(1) Parser
+  Input file : tests/test3.c
+─────────────────────────────────────────────────────────────
+
+─────────────────────────────────────────────────────────────
+  ***parsing successful***
+─────────────────────────────────────────────────────────────
+
+╔══════════════════════════════════════════════════════════════╗
+║     DERIVATION TREE  (indented, top-down structure)          ║
+║  Each rule is shown indented under its parent rule.          ║
+╚══════════════════════════════════════════════════════════════╝
+  Total reductions: 1341
+
+program → translation_unit
+  translation_unit → translation_unit external_decl
+    external_decl → function_def
+      function_def → function_header compound_stmt
+        compound_stmt → { block_item_list }
+          block_item_list → block_item_list block_item
+            block_item_list → block_item_list block_item
+              block_item_list → block_item_list block_item
+                block_item_list → block_item_list block_item
+                  block_item_list → block_item_list block_item
+                    block_item_list → block_item_list block_item
+                      block_item_list → block_item_list block_item
+                        block_item_list → block_item_list block_item
+                          block_item_list → block_item_list block_item
+                            block_item_list → block_item_list block_item
+                              block_item_list → block_item_list block_item
+                                block_item_list → block_item_list block_item
+                                  block_item_list → block_item_list block_item
+                                    block_item_list → block_item_list block_item
+                                      block_item_list → block_item_list block_item
+                                        block_item_list → block_item_list block_item
+                                          block_item_list → block_item_list block_item
+                                            block_item_list → block_item_list block_item
+                                              block_item_list → block_item_list block_item
+                                                block_item_list → block_item_list block_item
+                                                  block_item_list → block_item_list block_item
+                                                    block_item_list → block_item_list block_item
+                                                      block_item_list → block_item_list block_item
+                                                        block_item_list → block_item_list block_item
+                                                          block_item_list → block_item_list block_item
+                                                            block_item_list → block_item_list block_item
+                                                              block_item_list → block_item_list block_item
+                                                                block_item → stmt
+                                                                  stmt → selection_stmt
+                                                                    selection_stmt → switch ( expr ) { case_list }
+                                                                      case_list → case_list labeled_stmt
+                                                                        translation_unit → translation_unit external_decl
+                                                                          translation_unit → translation_unit external_decl
+                                                                            translation_unit → external_decl
+                                                                              external_decl → declaration
+                                                                                declaration → type_spec ;
+                                                                                  type_spec → struct_decl
+                                                                                    struct_decl → struct IDENTIFIER { member_decl_list }
+                                                                                      member_decl_list → member_decl_list member_decl
+                                                                                        member_decl_list → member_decl
+                                                                                          member_decl → type_spec declarator_list ;
+                                                                                            type_spec → int
+                                                                                            declarator_list → declarator
+                                                                                              declarator → IDENTIFIER
+                                                                                        member_decl → type_spec declarator_list ;
+                                                                                          type_spec → int
+                                                                                          declarator_list → declarator
+                                                                                            declarator → IDENTIFIER
+                                                                            external_decl → declaration
+                                                                              declaration → type_spec ;
+                                                                                type_spec → enum_decl
+                                                                                  enum_decl → enum IDENTIFIER { enumerator_list }
+                                                                                    enumerator_list → enumerator_list , enumerator
+                                                                                      enumerator_list → enumerator_list , enumerator
+                                                                                        enumerator_list → enumerator_list , enumerator
+                                                                                          enumerator_list → enumerator
+                                                                                            enumerator → IDENTIFIER
+                                                                                          enumerator → IDENTIFIER
+                                                                                        enumerator → IDENTIFIER
+                                                                                      enumerator → IDENTIFIER
+                                                                          external_decl → function_def
+                                                                            function_def → function_header compound_stmt
+                                                                              function_header → type_spec IDENTIFIER ( param_list )
+                                                                                type_spec → int
+                                                                                param_list → param_decl
+                                                                                  param_decl → type_spec declarator
+                                                                                    type_spec → int
+                                                                                    declarator → IDENTIFIER
+                                                                              compound_stmt → { block_item_list }
+                                                                                block_item_list → block_item_list block_item
+                                                                                  block_item_list → block_item
+                                                                                    block_item → stmt
+                                                                                      stmt → selection_stmt
+                                                                                        selection_stmt → if ( expr ) stmt
+                                                                                          expr → assignment_expr
+                                                                                            assignment_expr → conditional_expr
+                                                                                              conditional_expr → logical_or_expr
+                                                                                                logical_or_expr → logical_and_expr
+                                                                                                  logical_and_expr → inclusive_or_expr
+                                                                                                    inclusive_or_expr → exclusive_or_expr
+                                                                                                      exclusive_or_expr → and_expr
+                                                                                                        and_expr → equality_expr
+                                                                                                          equality_expr → relational_expr
+                                                                                                            relational_expr → relational_expr <= shift_expr
+                                                                                                              relational_expr → shift_expr
+                                                                                                                shift_expr → additive_expr
+                                                                                                                  additive_expr → multiplicative_expr
+                                                                                                                    multiplicative_expr → unary_expr
+                                                                                                                      unary_expr → postfix_expr
+                                                                                                                        postfix_expr → primary_expr
+                                                                                                                          primary_expr → IDENTIFIER
+                                                                                                              shift_expr → additive_expr
+                                                                                                                additive_expr → multiplicative_expr
+                                                                                                                  multiplicative_expr → unary_expr
+                                                                                                                    unary_expr → postfix_expr
+                                                                                                                      postfix_expr → primary_expr
+                                                                                                                        primary_expr → INT_CONST
+                                                                                          stmt → jump_stmt
+                                                                                            jump_stmt → return expr ;
+                                                                                              expr → assignment_expr
+                                                                                                assignment_expr → conditional_expr
+                                                                                                  conditional_expr → logical_or_expr
+                                                                                                    logical_or_expr → logical_and_expr
+                                                                                                      logical_and_expr → inclusive_or_expr
+                                                                                                        inclusive_or_expr → exclusive_or_expr
+                                                                                                          exclusive_or_expr → and_expr
+                                                                                                            and_expr → equality_expr
+                                                                                                              equality_expr → relational_expr
+                                                                                                                relational_expr → shift_expr
+                                                                                                                  shift_expr → additive_expr
+                                                                                                                    additive_expr → multiplicative_expr
+                                                                                                                      multiplicative_expr → unary_expr
+                                                                                                                        unary_expr → postfix_expr
+                                                                                                                          postfix_expr → primary_expr
+                                                                                                                            primary_expr → INT_CONST
+                                                                                  block_item → stmt
+                                                                                    stmt → jump_stmt
+                                                                                      jump_stmt → return expr ;
+                                                                                        expr → assignment_expr
+                                                                                          assignment_expr → conditional_expr
+                                                                                            conditional_expr → logical_or_expr
+                                                                                              logical_or_expr → logical_and_expr
+                                                                                                logical_and_expr → inclusive_or_expr
+                                                                                                  inclusive_or_expr → exclusive_or_expr
+                                                                                                    exclusive_or_expr → and_expr
+                                                                                                      and_expr → equality_expr
+                                                                                                        equality_expr → relational_expr
+                                                                                                          relational_expr → shift_expr
+                                                                                                            shift_expr → additive_expr
+                                                                                                              additive_expr → multiplicative_expr
+                                                                                                                multiplicative_expr → multiplicative_expr * unary_expr
+                                                                                                                  multiplicative_expr → unary_expr
+                                                                                                                    unary_expr → postfix_expr
+                                                                                                                      postfix_expr → primary_expr
+                                                                                                                        primary_expr → IDENTIFIER
+                                                                                                                  unary_expr → postfix_expr
+                                                                                                                    postfix_expr → postfix_expr ( arg_list )
+                                                                                                                      postfix_expr → primary_expr
+                                                                                                                        primary_expr → IDENTIFIER
+                                                                                                                      arg_list → assignment_expr
+                                                                                                                        assignment_expr → conditional_expr
+                                                                                                                          conditional_expr → logical_or_expr
+                                                                                                                            logical_or_expr → logical_and_expr
+                                                                                                                              logical_and_expr → inclusive_or_expr
+                                                                                                                                inclusive_or_expr → exclusive_or_expr
+                                                                                                                                  exclusive_or_expr → and_expr
+                                                                                                                                    and_expr → equality_expr
+                                                                                                                                      equality_expr → relational_expr
+                                                                                                                                        relational_expr → shift_expr
+                                                                                                                                          shift_expr → additive_expr
+                                                                                                                                            additive_expr → additive_expr - multiplicative_expr
+                                                                                                                                              additive_expr → multiplicative_expr
+                                                                                                                                                multiplicative_expr → unary_expr
+                                                                                                                                                  unary_expr → postfix_expr
+                                                                                                                                                    postfix_expr → primary_expr
+                                                                                                                                                      primary_expr → IDENTIFIER
+                                                                                                                                              multiplicative_expr → unary_expr
+                                                                                                                                                unary_expr → postfix_expr
+                                                                                                                                                  postfix_expr → primary_expr
+                                                                                                                                                    primary_expr → INT_CONST
+                                                                        labeled_stmt → default : case_body_list
+                                                                          case_body_list → case_body_list non_case_stmt
+                                                                            case_body_list → case_body_list non_case_stmt
+                                                                              case_list → case_list labeled_stmt
+                                                                                function_header → type_spec IDENTIFIER ( )
+                                                                                  type_spec → int
+                                                                                labeled_stmt → case expr : case_body_list
+                                                                                  case_list → case_list labeled_stmt
+                                                                                    block_item_list → block_item_list block_item
+                                                                                      block_item_list → block_item_list block_item
+                                                                                        block_item_list → block_item_list block_item
+                                                                                          block_item_list → block_item_list block_item
+                                                                                            block_item_list → block_item_list block_item
+                                                                                              block_item_list → block_item_list block_item
+                                                                                                block_item_list → block_item_list block_item
+                                                                                                  block_item_list → block_item
+                                                                                                    block_item → declaration
+                                                                                                      declaration → type_spec declarator_list ;
+                                                                                                        type_spec → int
+                                                                                                        declarator_list → declarator
+                                                                                                          declarator → IDENTIFIER = initializer
+                                                                                                            initializer → assignment_expr
+                                                                                                              assignment_expr → conditional_expr
+                                                                                                                conditional_expr → logical_or_expr
+                                                                                                                  logical_or_expr → logical_and_expr
+                                                                                                                    logical_and_expr → inclusive_or_expr
+                                                                                                                      inclusive_or_expr → exclusive_or_expr
+                                                                                                                        exclusive_or_expr → and_expr
+                                                                                                                          and_expr → equality_expr
+                                                                                                                            equality_expr → relational_expr
+                                                                                                                              relational_expr → shift_expr
+                                                                                                                                shift_expr → additive_expr
+                                                                                                                                  additive_expr → multiplicative_expr
+                                                                                                                                    multiplicative_expr → unary_expr
+                                                                                                                                      unary_expr → postfix_expr
+                                                                                                                                        postfix_expr → primary_expr
+                                                                                                                                          primary_expr → INT_CONST
+                                                                                                  block_item → declaration
+                                                                                                    declaration → type_spec declarator_list ;
+                                                                                                      type_spec → int
+                                                                                                      declarator_list → declarator
+                                                                                                        declarator → IDENTIFIER
+                                                                                                block_item → stmt
+                                                                                                  stmt → iteration_stmt
+                                                                                                    iteration_stmt → for ( expr_stmt expr_stmt expr ) stmt
+                                                                                                      expr_stmt → expr ;
+                                                                                                        expr → assignment_expr
+                                                                                                          assignment_expr → unary_expr = assignment_expr
+                                                                                                            unary_expr → postfix_expr
+                                                                                                              postfix_expr → primary_expr
+                                                                                                                primary_expr → IDENTIFIER
+                                                                                                            assignment_expr → conditional_expr
+                                                                                                              conditional_expr → logical_or_expr
+                                                                                                                logical_or_expr → logical_and_expr
+                                                                                                                  logical_and_expr → inclusive_or_expr
+                                                                                                                    inclusive_or_expr → exclusive_or_expr
+                                                                                                                      exclusive_or_expr → and_expr
+                                                                                                                        and_expr → equality_expr
+                                                                                                                          equality_expr → relational_expr
+                                                                                                                            relational_expr → shift_expr
+                                                                                                                              shift_expr → additive_expr
+                                                                                                                                additive_expr → multiplicative_expr
+                                                                                                                                  multiplicative_expr → unary_expr
+                                                                                                                                    unary_expr → postfix_expr
+                                                                                                                                      postfix_expr → primary_expr
+                                                                                                                                        primary_expr → INT_CONST
+                                                                                                      expr_stmt → expr ;
+                                                                                                        expr → assignment_expr
+                                                                                                          assignment_expr → conditional_expr
+                                                                                                            conditional_expr → logical_or_expr
+                                                                                                              logical_or_expr → logical_and_expr
+                                                                                                                logical_and_expr → inclusive_or_expr
+                                                                                                                  inclusive_or_expr → exclusive_or_expr
+                                                                                                                    exclusive_or_expr → and_expr
+                                                                                                                      and_expr → equality_expr
+                                                                                                                        equality_expr → relational_expr
+                                                                                                                          relational_expr → relational_expr < shift_expr
+                                                                                                                            relational_expr → shift_expr
+                                                                                                                              shift_expr → additive_expr
+                                                                                                                                additive_expr → multiplicative_expr
+                                                                                                                                  multiplicative_expr → unary_expr
+                                                                                                                                    unary_expr → postfix_expr
+                                                                                                                                      postfix_expr → primary_expr
+                                                                                                                                        primary_expr → IDENTIFIER
+                                                                                                                            shift_expr → additive_expr
+                                                                                                                              additive_expr → multiplicative_expr
+                                                                                                                                multiplicative_expr → unary_expr
+                                                                                                                                  unary_expr → postfix_expr
+                                                                                                                                    postfix_expr → primary_expr
+                                                                                                                                      primary_expr → INT_CONST
+                                                                                                      expr → assignment_expr
+                                                                                                        assignment_expr → conditional_expr
+                                                                                                          conditional_expr → logical_or_expr
+                                                                                                            logical_or_expr → logical_and_expr
+                                                                                                              logical_and_expr → inclusive_or_expr
+                                                                                                                inclusive_or_expr → exclusive_or_expr
+                                                                                                                  exclusive_or_expr → and_expr
+                                                                                                                    and_expr → equality_expr
+                                                                                                                      equality_expr → relational_expr
+                                                                                                                        relational_expr → shift_expr
+                                                                                                                          shift_expr → additive_expr
+                                                                                                                            additive_expr → multiplicative_expr
+                                                                                                                              multiplicative_expr → unary_expr
+                                                                                                                                unary_expr → postfix_expr
+                                                                                                                                  postfix_expr → postfix_expr ++
+                                                                                                                                    postfix_expr → primary_expr
+                                                                                                                                      primary_expr → IDENTIFIER
+                                                                                                      stmt → compound_stmt
+                                                                                                        compound_stmt → { block_item_list }
+                                                                                                          block_item_list → block_item
+                                                                                                            block_item → stmt
+                                                                                                              stmt → expr_stmt
+                                                                                                                expr_stmt → expr ;
+                                                                                                                  expr → assignment_expr
+                                                                                                                    assignment_expr → unary_expr = assignment_expr
+                                                                                                                      unary_expr → postfix_expr
+                                                                                                                        postfix_expr → primary_expr
+                                                                                                                          primary_expr → IDENTIFIER
+                                                                                                                      assignment_expr → conditional_expr
+                                                                                                                        conditional_expr → logical_or_expr
+                                                                                                                          logical_or_expr → logical_and_expr
+                                                                                                                            logical_and_expr → inclusive_or_expr
+                                                                                                                              inclusive_or_expr → exclusive_or_expr
+                                                                                                                                exclusive_or_expr → and_expr
+                                                                                                                                  and_expr → equality_expr
+                                                                                                                                    equality_expr → relational_expr
+                                                                                                                                      relational_expr → shift_expr
+                                                                                                                                        shift_expr → additive_expr
+                                                                                                                                          additive_expr → additive_expr + multiplicative_expr
+                                                                                                                                            additive_expr → multiplicative_expr
+                                                                                                                                              multiplicative_expr → unary_expr
+                                                                                                                                                unary_expr → postfix_expr
+                                                                                                                                                  postfix_expr → primary_expr
+                                                                                                                                                    primary_expr → IDENTIFIER
+                                                                                                                                            multiplicative_expr → unary_expr
+                                                                                                                                              unary_expr → postfix_expr
+                                                                                                                                                postfix_expr → primary_expr
+                                                                                                                                                  primary_expr → IDENTIFIER
+                                                                                              block_item → declaration
+                                                                                                declaration → type_spec declarator_list ;
+                                                                                                  type_spec → int
+                                                                                                  declarator_list → declarator
+                                                                                                    declarator → IDENTIFIER = initializer
+                                                                                                      initializer → assignment_expr
+                                                                                                        assignment_expr → conditional_expr
+                                                                                                          conditional_expr → logical_or_expr
+                                                                                                            logical_or_expr → logical_and_expr
+                                                                                                              logical_and_expr → inclusive_or_expr
+                                                                                                                inclusive_or_expr → exclusive_or_expr
+                                                                                                                  exclusive_or_expr → and_expr
+                                                                                                                    and_expr → equality_expr
+                                                                                                                      equality_expr → relational_expr
+                                                                                                                        relational_expr → shift_expr
+                                                                                                                          shift_expr → additive_expr
+                                                                                                                            additive_expr → multiplicative_expr
+                                                                                                                              multiplicative_expr → unary_expr
+                                                                                                                                unary_expr → postfix_expr
+                                                                                                                                  postfix_expr → primary_expr
+                                                                                                                                    primary_expr → INT_CONST
+                                                                                            block_item → stmt
+                                                                                              stmt → iteration_stmt
+                                                                                                iteration_stmt → while ( expr ) stmt
+                                                                                                  expr → assignment_expr
+                                                                                                    assignment_expr → conditional_expr
+                                                                                                      conditional_expr → logical_or_expr
+                                                                                                        logical_or_expr → logical_and_expr
+                                                                                                          logical_and_expr → inclusive_or_expr
+                                                                                                            inclusive_or_expr → exclusive_or_expr
+                                                                                                              exclusive_or_expr → and_expr
+                                                                                                                and_expr → equality_expr
+                                                                                                                  equality_expr → relational_expr
+                                                                                                                    relational_expr → relational_expr < shift_expr
+                                                                                                                      relational_expr → shift_expr
+                                                                                                                        shift_expr → additive_expr
+                                                                                                                          additive_expr → multiplicative_expr
+                                                                                                                            multiplicative_expr → unary_expr
+                                                                                                                              unary_expr → postfix_expr
+                                                                                                                                postfix_expr → primary_expr
+                                                                                                                                  primary_expr → IDENTIFIER
+                                                                                                                      shift_expr → additive_expr
+                                                                                                                        additive_expr → multiplicative_expr
+                                                                                                                          multiplicative_expr → unary_expr
+                                                                                                                            unary_expr → postfix_expr
+                                                                                                                              postfix_expr → primary_expr
+                                                                                                                                primary_expr → INT_CONST
+                                                                                                  stmt → compound_stmt
+                                                                                                    compound_stmt → { block_item_list }
+                                                                                                      block_item_list → block_item
+                                                                                                        block_item → stmt
+                                                                                                          stmt → expr_stmt
+                                                                                                            expr_stmt → expr ;
+                                                                                                              expr → assignment_expr
+                                                                                                                assignment_expr → conditional_expr
+                                                                                                                  conditional_expr → logical_or_expr
+                                                                                                                    logical_or_expr → logical_and_expr
+                                                                                                                      logical_and_expr → inclusive_or_expr
+                                                                                                                        inclusive_or_expr → exclusive_or_expr
+                                                                                                                          exclusive_or_expr → and_expr
+                                                                                                                            and_expr → equality_expr
+                                                                                                                              equality_expr → relational_expr
+                                                                                                                                relational_expr → shift_expr
+                                                                                                                                  shift_expr → additive_expr
+                                                                                                                                    additive_expr → multiplicative_expr
+                                                                                                                                      multiplicative_expr → unary_expr
+                                                                                                                                        unary_expr → postfix_expr
+                                                                                                                                          postfix_expr → postfix_expr ++
+                                                                                                                                            postfix_expr → primary_expr
+                                                                                                                                              primary_expr → IDENTIFIER
+                                                                                          block_item → declaration
+                                                                                            declaration → type_spec declarator_list ;
+                                                                                              type_spec → int
+                                                                                              declarator_list → declarator
+                                                                                                declarator → IDENTIFIER = initializer
+                                                                                                  initializer → assignment_expr
+                                                                                                    assignment_expr → conditional_expr
+                                                                                                      conditional_expr → logical_or_expr
+                                                                                                        logical_or_expr → logical_and_expr
+                                                                                                          logical_and_expr → inclusive_or_expr
+                                                                                                            inclusive_or_expr → exclusive_or_expr
+                                                                                                              exclusive_or_expr → and_expr
+                                                                                                                and_expr → equality_expr
+                                                                                                                  equality_expr → relational_expr
+                                                                                                                    relational_expr → shift_expr
+                                                                                                                      shift_expr → additive_expr
+                                                                                                                        additive_expr → additive_expr + multiplicative_expr
+                                                                                                                          additive_expr → multiplicative_expr
+                                                                                                                            multiplicative_expr → unary_expr
+                                                                                                                              unary_expr → postfix_expr
+                                                                                                                                postfix_expr → primary_expr
+                                                                                                                                  primary_expr → IDENTIFIER
+                                                                                                                          multiplicative_expr → unary_expr
+                                                                                                                            unary_expr → postfix_expr
+                                                                                                                              postfix_expr → primary_expr
+                                                                                                                                primary_expr → IDENTIFIER
+                                                                                        block_item → stmt
+                                                                                          stmt → iteration_stmt
+                                                                                            iteration_stmt → do stmt while ( expr ) ;
+                                                                                              stmt → compound_stmt
+                                                                                                compound_stmt → { block_item_list }
+                                                                                                  block_item_list → block_item
+                                                                                                    block_item → stmt
+                                                                                                      stmt → expr_stmt
+                                                                                                        expr_stmt → expr ;
+                                                                                                          expr → assignment_expr
+                                                                                                            assignment_expr → conditional_expr
+                                                                                                              conditional_expr → logical_or_expr
+                                                                                                                logical_or_expr → logical_and_expr
+                                                                                                                  logical_and_expr → inclusive_or_expr
+                                                                                                                    inclusive_or_expr → exclusive_or_expr
+                                                                                                                      exclusive_or_expr → and_expr
+                                                                                                                        and_expr → equality_expr
+                                                                                                                          equality_expr → relational_expr
+                                                                                                                            relational_expr → shift_expr
+                                                                                                                              shift_expr → additive_expr
+                                                                                                                                additive_expr → multiplicative_expr
+                                                                                                                                  multiplicative_expr → unary_expr
+                                                                                                                                    unary_expr → postfix_expr
+                                                                                                                                      postfix_expr → postfix_expr --
+                                                                                                                                        postfix_expr → primary_expr
+                                                                                                                                          primary_expr → IDENTIFIER
+                                                                                              expr → assignment_expr
+                                                                                                assignment_expr → conditional_expr
+                                                                                                  conditional_expr → logical_or_expr
+                                                                                                    logical_or_expr → logical_and_expr
+                                                                                                      logical_and_expr → inclusive_or_expr
+                                                                                                        inclusive_or_expr → exclusive_or_expr
+                                                                                                          exclusive_or_expr → and_expr
+                                                                                                            and_expr → equality_expr
+                                                                                                              equality_expr → relational_expr
+                                                                                                                relational_expr → relational_expr > shift_expr
+                                                                                                                  relational_expr → shift_expr
+                                                                                                                    shift_expr → additive_expr
+                                                                                                                      additive_expr → multiplicative_expr
+                                                                                                                        multiplicative_expr → unary_expr
+                                                                                                                          unary_expr → postfix_expr
+                                                                                                                            postfix_expr → primary_expr
+                                                                                                                              primary_expr → IDENTIFIER
+                                                                                                                  shift_expr → additive_expr
+                                                                                                                    additive_expr → multiplicative_expr
+                                                                                                                      multiplicative_expr → unary_expr
+                                                                                                                        unary_expr → postfix_expr
+                                                                                                                          postfix_expr → primary_expr
+                                                                                                                            primary_expr → INT_CONST
+                                                                                      block_item → declaration
+                                                                                        declaration → type_spec declarator_list ;
+                                                                                          type_spec → int
+                                                                                          declarator_list → declarator
+                                                                                            declarator → IDENTIFIER = initializer
+                                                                                              initializer → assignment_expr
+                                                                                                assignment_expr → conditional_expr
+                                                                                                  conditional_expr → logical_or_expr
+                                                                                                    logical_or_expr → logical_and_expr
+                                                                                                      logical_and_expr → inclusive_or_expr
+                                                                                                        inclusive_or_expr → exclusive_or_expr
+                                                                                                          exclusive_or_expr → and_expr
+                                                                                                            and_expr → equality_expr
+                                                                                                              equality_expr → relational_expr
+                                                                                                                relational_expr → shift_expr
+                                                                                                                  shift_expr → additive_expr
+                                                                                                                    additive_expr → multiplicative_expr
+                                                                                                                      multiplicative_expr → unary_expr
+                                                                                                                        unary_expr → postfix_expr
+                                                                                                                          postfix_expr → primary_expr
+                                                                                                                            primary_expr → INT_CONST
+                                                                                    labeled_stmt → case expr : case_body_list
+                                                                                      expr → assignment_expr
+                                                                                        assignment_expr → conditional_expr
+                                                                                          conditional_expr → logical_or_expr
+                                                                                            logical_or_expr → logical_and_expr
+                                                                                              logical_and_expr → inclusive_or_expr
+                                                                                                inclusive_or_expr → exclusive_or_expr
+                                                                                                  exclusive_or_expr → and_expr
+                                                                                                    and_expr → equality_expr
+                                                                                                      equality_expr → relational_expr
+                                                                                                        relational_expr → shift_expr
+                                                                                                          shift_expr → additive_expr
+                                                                                                            additive_expr → multiplicative_expr
+                                                                                                              multiplicative_expr → unary_expr
+                                                                                                                unary_expr → postfix_expr
+                                                                                                                  postfix_expr → primary_expr
+                                                                                                                    primary_expr → IDENTIFIER
+                                                                                      case_body_list → case_body_list non_case_stmt
+                                                                                        case_body_list → case_body_list non_case_stmt
+                                                                                          expr → assignment_expr
+                                                                                            assignment_expr → conditional_expr
+                                                                                              conditional_expr → logical_or_expr
+                                                                                                logical_or_expr → logical_and_expr
+                                                                                                  logical_and_expr → inclusive_or_expr
+                                                                                                    inclusive_or_expr → exclusive_or_expr
+                                                                                                      exclusive_or_expr → and_expr
+                                                                                                        and_expr → equality_expr
+                                                                                                          equality_expr → relational_expr
+                                                                                                            relational_expr → shift_expr
+                                                                                                              shift_expr → additive_expr
+                                                                                                                additive_expr → multiplicative_expr
+                                                                                                                  multiplicative_expr → unary_expr
+                                                                                                                    unary_expr → postfix_expr
+                                                                                                                      postfix_expr → primary_expr
+                                                                                                                        primary_expr → INT_CONST
+                                                                                          non_case_stmt → expr_stmt
+                                                                                            expr_stmt → expr ;
+                                                                                              expr → assignment_expr
+                                                                                                assignment_expr → unary_expr = assignment_expr
+                                                                                                  unary_expr → postfix_expr
+                                                                                                    postfix_expr → primary_expr
+                                                                                                      primary_expr → IDENTIFIER
+                                                                                                  assignment_expr → conditional_expr
+                                                                                                    conditional_expr → logical_or_expr
+                                                                                                      logical_or_expr → logical_and_expr
+                                                                                                        logical_and_expr → inclusive_or_expr
+                                                                                                          inclusive_or_expr → exclusive_or_expr
+                                                                                                            exclusive_or_expr → and_expr
+                                                                                                              and_expr → equality_expr
+                                                                                                                equality_expr → relational_expr
+                                                                                                                  relational_expr → shift_expr
+                                                                                                                    shift_expr → additive_expr
+                                                                                                                      additive_expr → multiplicative_expr
+                                                                                                                        multiplicative_expr → unary_expr
+                                                                                                                          unary_expr → postfix_expr
+                                                                                                                            postfix_expr → primary_expr
+                                                                                                                              primary_expr → INT_CONST
+                                                                                        non_case_stmt → jump_stmt
+                                                                                          jump_stmt → break ;
+                                                                                  case_body_list → case_body_list non_case_stmt
+                                                                                    case_body_list → case_body_list non_case_stmt
+                                                                                      expr → assignment_expr
+                                                                                        assignment_expr → conditional_expr
+                                                                                          conditional_expr → logical_or_expr
+                                                                                            logical_or_expr → logical_and_expr
+                                                                                              logical_and_expr → inclusive_or_expr
+                                                                                                inclusive_or_expr → exclusive_or_expr
+                                                                                                  exclusive_or_expr → and_expr
+                                                                                                    and_expr → equality_expr
+                                                                                                      equality_expr → relational_expr
+                                                                                                        relational_expr → shift_expr
+                                                                                                          shift_expr → additive_expr
+                                                                                                            additive_expr → multiplicative_expr
+                                                                                                              multiplicative_expr → unary_expr
+                                                                                                                unary_expr → postfix_expr
+                                                                                                                  postfix_expr → primary_expr
+                                                                                                                    primary_expr → INT_CONST
+                                                                                      non_case_stmt → expr_stmt
+                                                                                        expr_stmt → expr ;
+                                                                                          expr → assignment_expr
+                                                                                            assignment_expr → unary_expr = assignment_expr
+                                                                                              unary_expr → postfix_expr
+                                                                                                postfix_expr → primary_expr
+                                                                                                  primary_expr → IDENTIFIER
+                                                                                              assignment_expr → conditional_expr
+                                                                                                conditional_expr → logical_or_expr
+                                                                                                  logical_or_expr → logical_and_expr
+                                                                                                    logical_and_expr → inclusive_or_expr
+                                                                                                      inclusive_or_expr → exclusive_or_expr
+                                                                                                        exclusive_or_expr → and_expr
+                                                                                                          and_expr → equality_expr
+                                                                                                            equality_expr → relational_expr
+                                                                                                              relational_expr → shift_expr
+                                                                                                                shift_expr → additive_expr
+                                                                                                                  additive_expr → multiplicative_expr
+                                                                                                                    multiplicative_expr → unary_expr
+                                                                                                                      unary_expr → postfix_expr
+                                                                                                                        postfix_expr → primary_expr
+                                                                                                                          primary_expr → INT_CONST
+                                                                                    non_case_stmt → jump_stmt
+                                                                                      jump_stmt → break ;
+                                                                              non_case_stmt → expr_stmt
+                                                                                expr_stmt → expr ;
+                                                                                  expr → assignment_expr
+                                                                                    assignment_expr → unary_expr = assignment_expr
+                                                                                      unary_expr → postfix_expr
+                                                                                        postfix_expr → primary_expr
+                                                                                          primary_expr → IDENTIFIER
+                                                                                      assignment_expr → conditional_expr
+                                                                                        conditional_expr → logical_or_expr
+                                                                                          logical_or_expr → logical_and_expr
+                                                                                            logical_and_expr → inclusive_or_expr
+                                                                                              inclusive_or_expr → exclusive_or_expr
+                                                                                                exclusive_or_expr → and_expr
+                                                                                                  and_expr → equality_expr
+                                                                                                    equality_expr → relational_expr
+                                                                                                      relational_expr → shift_expr
+                                                                                                        shift_expr → additive_expr
+                                                                                                          additive_expr → multiplicative_expr
+                                                                                                            multiplicative_expr → unary_expr
+                                                                                                              unary_expr → postfix_expr
+                                                                                                                postfix_expr → primary_expr
+                                                                                                                  primary_expr → INT_CONST
+                                                                            non_case_stmt → jump_stmt
+                                                                              jump_stmt → break ;
+                                                              block_item → declaration
+                                                                declaration → type_spec declarator_list ;
+                                                                  type_spec → struct_decl
+                                                                    struct_decl → struct IDENTIFIER
+                                                                  declarator_list → declarator
+                                                                    declarator → IDENTIFIER
+                                                            block_item → stmt
+                                                              stmt → expr_stmt
+                                                                expr_stmt → expr ;
+                                                                  expr → assignment_expr
+                                                                    assignment_expr → unary_expr = assignment_expr
+                                                                      unary_expr → postfix_expr
+                                                                        postfix_expr → postfix_expr . IDENTIFIER
+                                                                          postfix_expr → primary_expr
+                                                                            primary_expr → IDENTIFIER
+                                                                      assignment_expr → conditional_expr
+                                                                        conditional_expr → logical_or_expr
+                                                                          logical_or_expr → logical_and_expr
+                                                                            logical_and_expr → inclusive_or_expr
+                                                                              inclusive_or_expr → exclusive_or_expr
+                                                                                exclusive_or_expr → and_expr
+                                                                                  and_expr → equality_expr
+                                                                                    equality_expr → relational_expr
+                                                                                      relational_expr → shift_expr
+                                                                                        shift_expr → additive_expr
+                                                                                          additive_expr → multiplicative_expr
+                                                                                            multiplicative_expr → unary_expr
+                                                                                              unary_expr → postfix_expr
+                                                                                                postfix_expr → primary_expr
+                                                                                                  primary_expr → INT_CONST
+                                                          block_item → stmt
+                                                            stmt → expr_stmt
+                                                              expr_stmt → expr ;
+                                                                expr → assignment_expr
+                                                                  assignment_expr → unary_expr = assignment_expr
+                                                                    unary_expr → postfix_expr
+                                                                      postfix_expr → postfix_expr . IDENTIFIER
+                                                                        postfix_expr → primary_expr
+                                                                          primary_expr → IDENTIFIER
+                                                                    assignment_expr → conditional_expr
+                                                                      conditional_expr → logical_or_expr
+                                                                        logical_or_expr → logical_and_expr
+                                                                          logical_and_expr → inclusive_or_expr
+                                                                            inclusive_or_expr → exclusive_or_expr
+                                                                              exclusive_or_expr → and_expr
+                                                                                and_expr → equality_expr
+                                                                                  equality_expr → relational_expr
+                                                                                    relational_expr → shift_expr
+                                                                                      shift_expr → additive_expr
+                                                                                        additive_expr → multiplicative_expr
+                                                                                          multiplicative_expr → unary_expr
+                                                                                            unary_expr → postfix_expr
+                                                                                              postfix_expr → primary_expr
+                                                                                                primary_expr → INT_CONST
+                                                        block_item → declaration
+                                                          declaration → type_spec declarator_list ;
+                                                            type_spec → int
+                                                            declarator_list → declarator
+                                                              declarator → * IDENTIFIER
+                                                      block_item → stmt
+                                                        stmt → expr_stmt
+                                                          expr_stmt → expr ;
+                                                            expr → assignment_expr
+                                                              assignment_expr → unary_expr = assignment_expr
+                                                                unary_expr → postfix_expr
+                                                                  postfix_expr → primary_expr
+                                                                    primary_expr → IDENTIFIER
+                                                                assignment_expr → conditional_expr
+                                                                  conditional_expr → logical_or_expr
+                                                                    logical_or_expr → logical_and_expr
+                                                                      logical_and_expr → inclusive_or_expr
+                                                                        inclusive_or_expr → exclusive_or_expr
+                                                                          exclusive_or_expr → and_expr
+                                                                            and_expr → equality_expr
+                                                                              equality_expr → relational_expr
+                                                                                relational_expr → shift_expr
+                                                                                  shift_expr → additive_expr
+                                                                                    additive_expr → multiplicative_expr
+                                                                                      multiplicative_expr → unary_expr
+                                                                                        unary_expr → & unary_expr  [addr-of]
+                                                                                          unary_expr → postfix_expr
+                                                                                            postfix_expr → primary_expr
+                                                                                              primary_expr → IDENTIFIER
+                                                    block_item → stmt
+                                                      stmt → expr_stmt
+                                                        expr_stmt → expr ;
+                                                          expr → assignment_expr
+                                                            assignment_expr → unary_expr = assignment_expr
+                                                              unary_expr → * unary_expr  [deref]
+                                                                unary_expr → postfix_expr
+                                                                  postfix_expr → primary_expr
+                                                                    primary_expr → IDENTIFIER
+                                                              assignment_expr → conditional_expr
+                                                                conditional_expr → logical_or_expr
+                                                                  logical_or_expr → logical_and_expr
+                                                                    logical_and_expr → inclusive_or_expr
+                                                                      inclusive_or_expr → exclusive_or_expr
+                                                                        exclusive_or_expr → and_expr
+                                                                          and_expr → equality_expr
+                                                                            equality_expr → relational_expr
+                                                                              relational_expr → shift_expr
+                                                                                shift_expr → additive_expr
+                                                                                  additive_expr → multiplicative_expr
+                                                                                    multiplicative_expr → unary_expr
+                                                                                      unary_expr → postfix_expr
+                                                                                        postfix_expr → primary_expr
+                                                                                          primary_expr → INT_CONST
+                                                  block_item → declaration
+                                                    declaration → type_spec declarator_list ;
+                                                      type_spec → int
+                                                      declarator_list → declarator
+                                                        declarator → IDENTIFIER = initializer
+                                                          initializer → assignment_expr
+                                                            assignment_expr → conditional_expr
+                                                              conditional_expr → logical_or_expr ? expr : conditional_expr
+                                                                logical_or_expr → logical_and_expr
+                                                                  logical_and_expr → inclusive_or_expr
+                                                                    inclusive_or_expr → exclusive_or_expr
+                                                                      exclusive_or_expr → and_expr
+                                                                        and_expr → equality_expr
+                                                                          equality_expr → relational_expr
+                                                                            relational_expr → shift_expr
+                                                                              shift_expr → additive_expr
+                                                                                additive_expr → multiplicative_expr
+                                                                                  multiplicative_expr → unary_expr
+                                                                                    unary_expr → postfix_expr
+                                                                                      postfix_expr → primary_expr
+                                                                                        primary_expr → ( expr )
+                                                                                          expr → assignment_expr
+                                                                                            assignment_expr → conditional_expr
+                                                                                              conditional_expr → logical_or_expr
+                                                                                                logical_or_expr → logical_and_expr
+                                                                                                  logical_and_expr → inclusive_or_expr
+                                                                                                    inclusive_or_expr → exclusive_or_expr
+                                                                                                      exclusive_or_expr → and_expr
+                                                                                                        and_expr → equality_expr
+                                                                                                          equality_expr → relational_expr
+                                                                                                            relational_expr → relational_expr > shift_expr
+                                                                                                              relational_expr → shift_expr
+                                                                                                                shift_expr → additive_expr
+                                                                                                                  additive_expr → multiplicative_expr
+                                                                                                                    multiplicative_expr → unary_expr
+                                                                                                                      unary_expr → postfix_expr
+                                                                                                                        postfix_expr → postfix_expr . IDENTIFIER
+                                                                                                                          postfix_expr → primary_expr
+                                                                                                                            primary_expr → IDENTIFIER
+                                                                                                              shift_expr → additive_expr
+                                                                                                                additive_expr → multiplicative_expr
+                                                                                                                  multiplicative_expr → unary_expr
+                                                                                                                    unary_expr → postfix_expr
+                                                                                                                      postfix_expr → postfix_expr . IDENTIFIER
+                                                                                                                        postfix_expr → primary_expr
+                                                                                                                          primary_expr → IDENTIFIER
+                                                                expr → assignment_expr
+                                                                  assignment_expr → conditional_expr
+                                                                    conditional_expr → logical_or_expr
+                                                                      logical_or_expr → logical_and_expr
+                                                                        logical_and_expr → inclusive_or_expr
+                                                                          inclusive_or_expr → exclusive_or_expr
+                                                                            exclusive_or_expr → and_expr
+                                                                              and_expr → equality_expr
+                                                                                equality_expr → relational_expr
+                                                                                  relational_expr → shift_expr
+                                                                                    shift_expr → additive_expr
+                                                                                      additive_expr → multiplicative_expr
+                                                                                        multiplicative_expr → unary_expr
+                                                                                          unary_expr → postfix_expr
+                                                                                            postfix_expr → postfix_expr . IDENTIFIER
+                                                                                              postfix_expr → primary_expr
+                                                                                                primary_expr → IDENTIFIER
+                                                                conditional_expr → logical_or_expr
+                                                                  logical_or_expr → logical_and_expr
+                                                                    logical_and_expr → inclusive_or_expr
+                                                                      inclusive_or_expr → exclusive_or_expr
+                                                                        exclusive_or_expr → and_expr
+                                                                          and_expr → equality_expr
+                                                                            equality_expr → relational_expr
+                                                                              relational_expr → shift_expr
+                                                                                shift_expr → additive_expr
+                                                                                  additive_expr → multiplicative_expr
+                                                                                    multiplicative_expr → unary_expr
+                                                                                      unary_expr → postfix_expr
+                                                                                        postfix_expr → postfix_expr . IDENTIFIER
+                                                                                          postfix_expr → primary_expr
+                                                                                            primary_expr → IDENTIFIER
+                                                block_item → declaration
+                                                  declaration → type_spec declarator_list ;
+                                                    type_spec → int
+                                                    declarator_list → declarator
+                                                      declarator → IDENTIFIER = initializer
+                                                        initializer → assignment_expr
+                                                          assignment_expr → conditional_expr
+                                                            conditional_expr → logical_or_expr
+                                                              logical_or_expr → logical_and_expr
+                                                                logical_and_expr → inclusive_or_expr
+                                                                  inclusive_or_expr → exclusive_or_expr
+                                                                    exclusive_or_expr → and_expr
+                                                                      and_expr → equality_expr
+                                                                        equality_expr → relational_expr
+                                                                          relational_expr → shift_expr
+                                                                            shift_expr → additive_expr
+                                                                              additive_expr → multiplicative_expr
+                                                                                multiplicative_expr → unary_expr
+                                                                                  unary_expr → - unary_expr  [UMINUS]
+                                                                                    unary_expr → postfix_expr
+                                                                                      postfix_expr → primary_expr
+                                                                                        primary_expr → IDENTIFIER
+                                              block_item → declaration
+                                                declaration → type_spec declarator_list ;
+                                                  type_spec → int
+                                                  declarator_list → declarator
+                                                    declarator → IDENTIFIER = initializer
+                                                      initializer → assignment_expr
+                                                        assignment_expr → conditional_expr
+                                                          conditional_expr → logical_or_expr
+                                                            logical_or_expr → logical_and_expr
+                                                              logical_and_expr → inclusive_or_expr
+                                                                inclusive_or_expr → exclusive_or_expr
+                                                                  exclusive_or_expr → and_expr
+                                                                    and_expr → equality_expr
+                                                                      equality_expr → relational_expr
+                                                                        relational_expr → shift_expr
+                                                                          shift_expr → additive_expr
+                                                                            additive_expr → multiplicative_expr
+                                                                              multiplicative_expr → unary_expr
+                                                                                unary_expr → + unary_expr  [UPLUS]
+                                                                                  unary_expr → postfix_expr
+                                                                                    postfix_expr → primary_expr
+                                                                                      primary_expr → IDENTIFIER
+                                            block_item → declaration
+                                              declaration → type_spec declarator_list ;
+                                                type_spec → int
+                                                declarator_list → declarator
+                                                  declarator → IDENTIFIER = initializer
+                                                    initializer → assignment_expr
+                                                      assignment_expr → conditional_expr
+                                                        conditional_expr → logical_or_expr
+                                                          logical_or_expr → logical_and_expr
+                                                            logical_and_expr → inclusive_or_expr
+                                                              inclusive_or_expr → exclusive_or_expr
+                                                                exclusive_or_expr → and_expr
+                                                                  and_expr → equality_expr
+                                                                    equality_expr → relational_expr
+                                                                      relational_expr → shift_expr
+                                                                        shift_expr → additive_expr
+                                                                          additive_expr → multiplicative_expr
+                                                                            multiplicative_expr → unary_expr
+                                                                              unary_expr → postfix_expr
+                                                                                postfix_expr → primary_expr
+                                                                                  primary_expr → INT_CONST
+                                          block_item → declaration
+                                            declaration → type_spec declarator_list ;
+                                              type_spec → int
+                                              declarator_list → declarator
+                                                declarator → IDENTIFIER = initializer
+                                                  initializer → assignment_expr
+                                                    assignment_expr → conditional_expr
+                                                      conditional_expr → logical_or_expr
+                                                        logical_or_expr → logical_and_expr
+                                                          logical_and_expr → inclusive_or_expr
+                                                            inclusive_or_expr → exclusive_or_expr
+                                                              exclusive_or_expr → and_expr
+                                                                and_expr → and_expr & equality_expr
+                                                                  and_expr → equality_expr
+                                                                    equality_expr → relational_expr
+                                                                      relational_expr → shift_expr
+                                                                        shift_expr → additive_expr
+                                                                          additive_expr → multiplicative_expr
+                                                                            multiplicative_expr → unary_expr
+                                                                              unary_expr → postfix_expr
+                                                                                postfix_expr → primary_expr
+                                                                                  primary_expr → IDENTIFIER
+                                                                  equality_expr → relational_expr
+                                                                    relational_expr → shift_expr
+                                                                      shift_expr → additive_expr
+                                                                        additive_expr → multiplicative_expr
+                                                                          multiplicative_expr → unary_expr
+                                                                            unary_expr → postfix_expr
+                                                                              postfix_expr → primary_expr
+                                                                                primary_expr → IDENTIFIER
+                                        block_item → stmt
+                                          stmt → expr_stmt
+                                            expr_stmt → expr ;
+                                              expr → assignment_expr
+                                                assignment_expr → unary_expr = assignment_expr
+                                                  unary_expr → postfix_expr
+                                                    postfix_expr → primary_expr
+                                                      primary_expr → IDENTIFIER
+                                                  assignment_expr → conditional_expr
+                                                    conditional_expr → logical_or_expr
+                                                      logical_or_expr → logical_and_expr
+                                                        logical_and_expr → inclusive_or_expr
+                                                          inclusive_or_expr → inclusive_or_expr | exclusive_or_expr
+                                                            inclusive_or_expr → exclusive_or_expr
+                                                              exclusive_or_expr → and_expr
+                                                                and_expr → equality_expr
+                                                                  equality_expr → relational_expr
+                                                                    relational_expr → shift_expr
+                                                                      shift_expr → additive_expr
+                                                                        additive_expr → multiplicative_expr
+                                                                          multiplicative_expr → unary_expr
+                                                                            unary_expr → postfix_expr
+                                                                              postfix_expr → primary_expr
+                                                                                primary_expr → IDENTIFIER
+                                                            exclusive_or_expr → and_expr
+                                                              and_expr → equality_expr
+                                                                equality_expr → relational_expr
+                                                                  relational_expr → shift_expr
+                                                                    shift_expr → additive_expr
+                                                                      additive_expr → multiplicative_expr
+                                                                        multiplicative_expr → unary_expr
+                                                                          unary_expr → postfix_expr
+                                                                            postfix_expr → primary_expr
+                                                                              primary_expr → INT_CONST
+                                      block_item → stmt
+                                        stmt → expr_stmt
+                                          expr_stmt → expr ;
+                                            expr → assignment_expr
+                                              assignment_expr → unary_expr = assignment_expr
+                                                unary_expr → postfix_expr
+                                                  postfix_expr → primary_expr
+                                                    primary_expr → IDENTIFIER
+                                                assignment_expr → conditional_expr
+                                                  conditional_expr → logical_or_expr
+                                                    logical_or_expr → logical_and_expr
+                                                      logical_and_expr → inclusive_or_expr
+                                                        inclusive_or_expr → exclusive_or_expr
+                                                          exclusive_or_expr → exclusive_or_expr ^ and_expr
+                                                            exclusive_or_expr → and_expr
+                                                              and_expr → equality_expr
+                                                                equality_expr → relational_expr
+                                                                  relational_expr → shift_expr
+                                                                    shift_expr → additive_expr
+                                                                      additive_expr → multiplicative_expr
+                                                                        multiplicative_expr → unary_expr
+                                                                          unary_expr → postfix_expr
+                                                                            postfix_expr → primary_expr
+                                                                              primary_expr → IDENTIFIER
+                                                            and_expr → equality_expr
+                                                              equality_expr → relational_expr
+                                                                relational_expr → shift_expr
+                                                                  shift_expr → additive_expr
+                                                                    additive_expr → multiplicative_expr
+                                                                      multiplicative_expr → unary_expr
+                                                                        unary_expr → postfix_expr
+                                                                          postfix_expr → primary_expr
+                                                                            primary_expr → INT_CONST
+                                    block_item → stmt
+                                      stmt → expr_stmt
+                                        expr_stmt → expr ;
+                                          expr → assignment_expr
+                                            assignment_expr → unary_expr = assignment_expr
+                                              unary_expr → postfix_expr
+                                                postfix_expr → primary_expr
+                                                  primary_expr → IDENTIFIER
+                                              assignment_expr → conditional_expr
+                                                conditional_expr → logical_or_expr
+                                                  logical_or_expr → logical_and_expr
+                                                    logical_and_expr → inclusive_or_expr
+                                                      inclusive_or_expr → exclusive_or_expr
+                                                        exclusive_or_expr → and_expr
+                                                          and_expr → equality_expr
+                                                            equality_expr → relational_expr
+                                                              relational_expr → shift_expr
+                                                                shift_expr → shift_expr << additive_expr
+                                                                  shift_expr → additive_expr
+                                                                    additive_expr → multiplicative_expr
+                                                                      multiplicative_expr → unary_expr
+                                                                        unary_expr → postfix_expr
+                                                                          postfix_expr → primary_expr
+                                                                            primary_expr → IDENTIFIER
+                                                                  additive_expr → multiplicative_expr
+                                                                    multiplicative_expr → unary_expr
+                                                                      unary_expr → postfix_expr
+                                                                        postfix_expr → primary_expr
+                                                                          primary_expr → INT_CONST
+                                  block_item → stmt
+                                    stmt → expr_stmt
+                                      expr_stmt → expr ;
+                                        expr → assignment_expr
+                                          assignment_expr → unary_expr = assignment_expr
+                                            unary_expr → postfix_expr
+                                              postfix_expr → primary_expr
+                                                primary_expr → IDENTIFIER
+                                            assignment_expr → conditional_expr
+                                              conditional_expr → logical_or_expr
+                                                logical_or_expr → logical_and_expr
+                                                  logical_and_expr → inclusive_or_expr
+                                                    inclusive_or_expr → exclusive_or_expr
+                                                      exclusive_or_expr → and_expr
+                                                        and_expr → equality_expr
+                                                          equality_expr → relational_expr
+                                                            relational_expr → shift_expr
+                                                              shift_expr → shift_expr >> additive_expr
+                                                                shift_expr → additive_expr
+                                                                  additive_expr → multiplicative_expr
+                                                                    multiplicative_expr → unary_expr
+                                                                      unary_expr → postfix_expr
+                                                                        postfix_expr → primary_expr
+                                                                          primary_expr → IDENTIFIER
+                                                                additive_expr → multiplicative_expr
+                                                                  multiplicative_expr → unary_expr
+                                                                    unary_expr → postfix_expr
+                                                                      postfix_expr → primary_expr
+                                                                        primary_expr → INT_CONST
+                                block_item → stmt
+                                  stmt → expr_stmt
+                                    expr_stmt → expr ;
+                                      expr → assignment_expr
+                                        assignment_expr → unary_expr ASSIGN_OP assignment_expr
+                                          unary_expr → postfix_expr
+                                            postfix_expr → primary_expr
+                                              primary_expr → IDENTIFIER
+                                          assignment_expr → conditional_expr
+                                            conditional_expr → logical_or_expr
+                                              logical_or_expr → logical_and_expr
+                                                logical_and_expr → inclusive_or_expr
+                                                  inclusive_or_expr → exclusive_or_expr
+                                                    exclusive_or_expr → and_expr
+                                                      and_expr → equality_expr
+                                                        equality_expr → relational_expr
+                                                          relational_expr → shift_expr
+                                                            shift_expr → additive_expr
+                                                              additive_expr → multiplicative_expr
+                                                                multiplicative_expr → unary_expr
+                                                                  unary_expr → postfix_expr
+                                                                    postfix_expr → primary_expr
+                                                                      primary_expr → INT_CONST
+                              block_item → stmt
+                                stmt → expr_stmt
+                                  expr_stmt → expr ;
+                                    expr → assignment_expr
+                                      assignment_expr → unary_expr ASSIGN_OP assignment_expr
+                                        unary_expr → postfix_expr
+                                          postfix_expr → primary_expr
+                                            primary_expr → IDENTIFIER
+                                        assignment_expr → conditional_expr
+                                          conditional_expr → logical_or_expr
+                                            logical_or_expr → logical_and_expr
+                                              logical_and_expr → inclusive_or_expr
+                                                inclusive_or_expr → exclusive_or_expr
+                                                  exclusive_or_expr → and_expr
+                                                    and_expr → equality_expr
+                                                      equality_expr → relational_expr
+                                                        relational_expr → shift_expr
+                                                          shift_expr → additive_expr
+                                                            additive_expr → multiplicative_expr
+                                                              multiplicative_expr → unary_expr
+                                                                unary_expr → postfix_expr
+                                                                  postfix_expr → primary_expr
+                                                                    primary_expr → INT_CONST
+                            block_item → stmt
+                              stmt → expr_stmt
+                                expr_stmt → expr ;
+                                  expr → assignment_expr
+                                    assignment_expr → unary_expr ASSIGN_OP assignment_expr
+                                      unary_expr → postfix_expr
+                                        postfix_expr → primary_expr
+                                          primary_expr → IDENTIFIER
+                                      assignment_expr → conditional_expr
+                                        conditional_expr → logical_or_expr
+                                          logical_or_expr → logical_and_expr
+                                            logical_and_expr → inclusive_or_expr
+                                              inclusive_or_expr → exclusive_or_expr
+                                                exclusive_or_expr → and_expr
+                                                  and_expr → equality_expr
+                                                    equality_expr → relational_expr
+                                                      relational_expr → shift_expr
+                                                        shift_expr → additive_expr
+                                                          additive_expr → multiplicative_expr
+                                                            multiplicative_expr → unary_expr
+                                                              unary_expr → postfix_expr
+                                                                postfix_expr → primary_expr
+                                                                  primary_expr → INT_CONST
+                          block_item → declaration
+                            declaration → type_spec declarator_list ;
+                              type_spec → int
+                              declarator_list → declarator
+                                declarator → IDENTIFIER = initializer
+                                  initializer → assignment_expr
+                                    assignment_expr → conditional_expr
+                                      conditional_expr → logical_or_expr
+                                        logical_or_expr → logical_and_expr
+                                          logical_and_expr → inclusive_or_expr
+                                            inclusive_or_expr → exclusive_or_expr
+                                              exclusive_or_expr → and_expr
+                                                and_expr → equality_expr
+                                                  equality_expr → relational_expr
+                                                    relational_expr → shift_expr
+                                                      shift_expr → additive_expr
+                                                        additive_expr → multiplicative_expr
+                                                          multiplicative_expr → unary_expr
+                                                            unary_expr → sizeof ( type_spec )
+                                                              type_spec → int
+                        block_item → declaration
+                          declaration → type_spec declarator_list ;
+                            type_spec → int
+                            declarator_list → declarator
+                              declarator → IDENTIFIER = initializer
+                                initializer → assignment_expr
+                                  assignment_expr → conditional_expr
+                                    conditional_expr → logical_or_expr
+                                      logical_or_expr → logical_and_expr
+                                        logical_and_expr → inclusive_or_expr
+                                          inclusive_or_expr → exclusive_or_expr
+                                            exclusive_or_expr → and_expr
+                                              and_expr → equality_expr
+                                                equality_expr → relational_expr
+                                                  relational_expr → shift_expr
+                                                    shift_expr → additive_expr
+                                                      additive_expr → multiplicative_expr
+                                                        multiplicative_expr → unary_expr
+                                                          unary_expr → sizeof unary_expr
+                                                            unary_expr → postfix_expr
+                                                              postfix_expr → primary_expr
+                                                                primary_expr → IDENTIFIER
+                      block_item → declaration
+                        declaration → type_spec declarator_list ;
+                          type_spec → enum_decl
+                            enum_decl → enum IDENTIFIER
+                          declarator_list → declarator
+                            declarator → IDENTIFIER = initializer
+                              initializer → assignment_expr
+                                assignment_expr → conditional_expr
+                                  conditional_expr → logical_or_expr
+                                    logical_or_expr → logical_and_expr
+                                      logical_and_expr → inclusive_or_expr
+                                        inclusive_or_expr → exclusive_or_expr
+                                          exclusive_or_expr → and_expr
+                                            and_expr → equality_expr
+                                              equality_expr → relational_expr
+                                                relational_expr → shift_expr
+                                                  shift_expr → additive_expr
+                                                    additive_expr → multiplicative_expr
+                                                      multiplicative_expr → unary_expr
+                                                        unary_expr → postfix_expr
+                                                          postfix_expr → primary_expr
+                                                            primary_expr → IDENTIFIER
+                    block_item → stmt
+                      stmt → selection_stmt
+                        selection_stmt → if ( expr ) stmt
+                          expr → assignment_expr
+                            assignment_expr → conditional_expr
+                              conditional_expr → logical_or_expr
+                                logical_or_expr → logical_and_expr
+                                  logical_and_expr → inclusive_or_expr
+                                    inclusive_or_expr → exclusive_or_expr
+                                      exclusive_or_expr → and_expr
+                                        and_expr → equality_expr
+                                          equality_expr → equality_expr == relational_expr
+                                            equality_expr → relational_expr
+                                              relational_expr → shift_expr
+                                                shift_expr → additive_expr
+                                                  additive_expr → multiplicative_expr
+                                                    multiplicative_expr → unary_expr
+                                                      unary_expr → postfix_expr
+                                                        postfix_expr → primary_expr
+                                                          primary_expr → IDENTIFIER
+                                            relational_expr → shift_expr
+                                              shift_expr → additive_expr
+                                                additive_expr → multiplicative_expr
+                                                  multiplicative_expr → unary_expr
+                                                    unary_expr → postfix_expr
+                                                      postfix_expr → primary_expr
+                                                        primary_expr → IDENTIFIER
+                          stmt → compound_stmt
+                            compound_stmt → { block_item_list }
+                              block_item_list → block_item
+                                block_item → stmt
+                                  stmt → expr_stmt
+                                    expr_stmt → expr ;
+                                      expr → assignment_expr
+                                        assignment_expr → unary_expr = assignment_expr
+                                          unary_expr → postfix_expr
+                                            postfix_expr → primary_expr
+                                              primary_expr → IDENTIFIER
+                                          assignment_expr → conditional_expr
+                                            conditional_expr → logical_or_expr
+                                              logical_or_expr → logical_and_expr
+                                                logical_and_expr → inclusive_or_expr
+                                                  inclusive_or_expr → exclusive_or_expr
+                                                    exclusive_or_expr → and_expr
+                                                      and_expr → equality_expr
+                                                        equality_expr → relational_expr
+                                                          relational_expr → shift_expr
+                                                            shift_expr → additive_expr
+                                                              additive_expr → additive_expr + multiplicative_expr
+                                                                additive_expr → multiplicative_expr
+                                                                  multiplicative_expr → unary_expr
+                                                                    unary_expr → postfix_expr
+                                                                      postfix_expr → primary_expr
+                                                                        primary_expr → IDENTIFIER
+                                                                multiplicative_expr → unary_expr
+                                                                  unary_expr → postfix_expr
+                                                                    postfix_expr → primary_expr
+                                                                      primary_expr → INT_CONST
+                  block_item → declaration
+                    declaration → type_spec declarator_list ;
+                      type_spec → float
+                      declarator_list → declarator
+                        declarator → IDENTIFIER = initializer
+                          initializer → assignment_expr
+                            assignment_expr → conditional_expr
+                              conditional_expr → logical_or_expr
+                                logical_or_expr → logical_and_expr
+                                  logical_and_expr → inclusive_or_expr
+                                    inclusive_or_expr → exclusive_or_expr
+                                      exclusive_or_expr → and_expr
+                                        and_expr → equality_expr
+                                          equality_expr → relational_expr
+                                            relational_expr → shift_expr
+                                              shift_expr → additive_expr
+                                                additive_expr → multiplicative_expr
+                                                  multiplicative_expr → unary_expr
+                                                    unary_expr → postfix_expr
+                                                      postfix_expr → primary_expr
+                                                        primary_expr → FLOAT_CONST
+                block_item → declaration
+                  declaration → type_spec declarator_list ;
+                    type_spec → int
+                    declarator_list → declarator
+                      declarator → IDENTIFIER = initializer
+                        initializer → assignment_expr
+                          assignment_expr → conditional_expr
+                            conditional_expr → logical_or_expr
+                              logical_or_expr → logical_and_expr
+                                logical_and_expr → inclusive_or_expr
+                                  inclusive_or_expr → exclusive_or_expr
+                                    exclusive_or_expr → and_expr
+                                      and_expr → equality_expr
+                                        equality_expr → relational_expr
+                                          relational_expr → shift_expr
+                                            shift_expr → additive_expr
+                                              additive_expr → multiplicative_expr
+                                                multiplicative_expr → unary_expr
+                                                  unary_expr → postfix_expr
+                                                    postfix_expr → primary_expr
+                                                      primary_expr → INT_CONST
+              block_item → stmt
+                stmt → iteration_stmt
+                  iteration_stmt → for ( declaration expr_stmt expr ) stmt
+                    declaration → type_spec declarator_list ;
+                      type_spec → int
+                      declarator_list → declarator
+                        declarator → IDENTIFIER = initializer
+                          initializer → assignment_expr
+                            assignment_expr → conditional_expr
+                              conditional_expr → logical_or_expr
+                                logical_or_expr → logical_and_expr
+                                  logical_and_expr → inclusive_or_expr
+                                    inclusive_or_expr → exclusive_or_expr
+                                      exclusive_or_expr → and_expr
+                                        and_expr → equality_expr
+                                          equality_expr → relational_expr
+                                            relational_expr → shift_expr
+                                              shift_expr → additive_expr
+                                                additive_expr → multiplicative_expr
+                                                  multiplicative_expr → unary_expr
+                                                    unary_expr → postfix_expr
+                                                      postfix_expr → primary_expr
+                                                        primary_expr → INT_CONST
+                    expr_stmt → expr ;
+                      expr → assignment_expr
+                        assignment_expr → conditional_expr
+                          conditional_expr → logical_or_expr
+                            logical_or_expr → logical_and_expr
+                              logical_and_expr → inclusive_or_expr
+                                inclusive_or_expr → exclusive_or_expr
+                                  exclusive_or_expr → and_expr
+                                    and_expr → equality_expr
+                                      equality_expr → relational_expr
+                                        relational_expr → relational_expr < shift_expr
+                                          relational_expr → shift_expr
+                                            shift_expr → additive_expr
+                                              additive_expr → multiplicative_expr
+                                                multiplicative_expr → unary_expr
+                                                  unary_expr → postfix_expr
+                                                    postfix_expr → primary_expr
+                                                      primary_expr → IDENTIFIER
+                                          shift_expr → additive_expr
+                                            additive_expr → multiplicative_expr
+                                              multiplicative_expr → unary_expr
+                                                unary_expr → postfix_expr
+                                                  postfix_expr → primary_expr
+                                                    primary_expr → INT_CONST
+                    expr → assignment_expr
+                      assignment_expr → conditional_expr
+                        conditional_expr → logical_or_expr
+                          logical_or_expr → logical_and_expr
+                            logical_and_expr → inclusive_or_expr
+                              inclusive_or_expr → exclusive_or_expr
+                                exclusive_or_expr → and_expr
+                                  and_expr → equality_expr
+                                    equality_expr → relational_expr
+                                      relational_expr → shift_expr
+                                        shift_expr → additive_expr
+                                          additive_expr → multiplicative_expr
+                                            multiplicative_expr → unary_expr
+                                              unary_expr → postfix_expr
+                                                postfix_expr → postfix_expr ++
+                                                  postfix_expr → primary_expr
+                                                    primary_expr → IDENTIFIER
+                    stmt → compound_stmt
+                      compound_stmt → { block_item_list }
+                        block_item_list → block_item
+                          block_item → stmt
+                            stmt → expr_stmt
+                              expr_stmt → expr ;
+                                expr → assignment_expr
+                                  assignment_expr → unary_expr ASSIGN_OP assignment_expr
+                                    unary_expr → postfix_expr
+                                      postfix_expr → primary_expr
+                                        primary_expr → IDENTIFIER
+                                    assignment_expr → conditional_expr
+                                      conditional_expr → logical_or_expr
+                                        logical_or_expr → logical_and_expr
+                                          logical_and_expr → inclusive_or_expr
+                                            inclusive_or_expr → exclusive_or_expr
+                                              exclusive_or_expr → and_expr
+                                                and_expr → equality_expr
+                                                  equality_expr → relational_expr
+                                                    relational_expr → shift_expr
+                                                      shift_expr → additive_expr
+                                                        additive_expr → multiplicative_expr
+                                                          multiplicative_expr → unary_expr
+                                                            unary_expr → postfix_expr
+                                                              postfix_expr → primary_expr
+                                                                primary_expr → IDENTIFIER
+            block_item → stmt
+              stmt → jump_stmt
+                jump_stmt → return expr ;
+                  expr → assignment_expr
+                    assignment_expr → conditional_expr
+                      conditional_expr → logical_or_expr
+                        logical_or_expr → logical_and_expr
+                          logical_and_expr → inclusive_or_expr
+                            inclusive_or_expr → exclusive_or_expr
+                              exclusive_or_expr → and_expr
+                                and_expr → equality_expr
+                                  equality_expr → relational_expr
+                                    relational_expr → shift_expr
+                                      shift_expr → additive_expr
+                                        additive_expr → multiplicative_expr
+                                          multiplicative_expr → unary_expr
+                                            unary_expr → postfix_expr
+                                              postfix_expr → primary_expr
+                                                primary_expr → IDENTIFIER
+
+
+  [Part 4] Full LALR(1) table (334 states x 125 symbols)
+           saved to: output/parsing_table.csv
+           Open in Excel / LibreOffice Calc for full view.
+
+╔══════════════════════════════════════════════════════════════╗
+║      LALR(1) PARSING TABLE  (selected states shown)          ║
+║  Showing: State 0, conflict states, accept state + samples   ║
+║  Full table → output/parsing_table.csv                       ║
+╚══════════════════════════════════════════════════════════════╝
+  Legend:  sN=shift  rN=reduce  N=goto  acc=accept  .=error
+
+State |  ACTION                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | GOTO
+      | $end   INT    FLOAT  CHAR   VOID   DOUBLE SHORT  LONG   UNSIGN SIGNED STRUCT TYPEDE ENUM   UNION  AUTO   CONST  VOLATI STATIC EXTERN REGIST INLINE IDENTI {      *      (      ;      IF     FOR    WHILE  DO     SWITCH CASE   DEFAUL BREAK  CONTIN RETURN SIZEOF INT_CO FLOAT_ CHAR_C STRING INC_OP DEC_OP &      +      -      !      ~      }      =      [      ,      :      OR_OP  ?      AND_OP |      ^      EQ_OP  NE_OP  LE_OP  GE_OP  <      >      LEFT_S RIGHT_ /      %      ASSIGN ARROW  .      ELLIPS )      ]      ELSE  | progra transl extern functi functi declar type_q type_s storag storag struct enum_d compou declar declar member member enumer enumer block_ block_ stmt   expr_s select labele iterat jump_s expr   assign condit logica logica inclus exclus and_ex equali relati additi multip unary_ postfi primar initia param_ param_ case_b arg_li initia non_ca case_l
+------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+    0 | acc    s1     s2     s3     s4     s5     s6     s7     s8     s9     s10    s11    s12    s13    s14    s15    s16    s17    s18    s19    s20    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | 21     22     23     24     25     26     27     28     29     30     31     32     .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+    1 | r40    r40    r40    r40    r40    r40    r40    r40    r40    r40    r40    r40    r40    r40    r40    r40    r40    r40    r40    r40    r40    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+    2 | r41    r41    r41    r41    r41    r41    r41    r41    r41    r41    r41    r41    r41    r41    r41    r41    r41    r41    r41    r41    r41    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+    3 | r42    r42    r42    r42    r42    r42    r42    r42    r42    r42    r42    r42    r42    r42    r42    r42    r42    r42    r42    r42    r42    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+    4 | r43    r43    r43    r43    r43    r43    r43    r43    r43    r43    r43    r43    r43    r43    r43    r43    r43    r43    r43    r43    r43    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+    5 | r44    r44    r44    r44    r44    r44    r44    r44    r44    r44    r44    r44    r44    r44    r44    r44    r44    r44    r44    r44    r44    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+    6 | r45    s33    r45    r45    r45    r45    r45    r45    r45    r45    r45    r45    r45    r45    r45    r45    r45    r45    r45    r45    r45    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+    7 | r46    s34    r46    r46    r46    s35    r46    s36    r46    r46    r46    r46    r46    r46    r46    r46    r46    r46    r46    r46    r46    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+    8 | r47    s37    r47    s38    r47    r47    r47    s39    r47    r47    r47    r47    r47    r47    r47    r47    r47    r47    r47    r47    r47    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+    9 | r48    s40    r48    r48    r48    r48    r48    r48    r48    r48    r48    r48    r48    r48    r48    r48    r48    r48    r48    r48    r48    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+   10 | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      s41    s42    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+   11 | .      s1     s2     s3     s4     s5     s6     s7     s8     s9     s10    .      s12    s13    .      s15    s16    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      27     43     .      .      31     32     .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+   12 | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      s44    s45    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+   13 | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      s46    s47    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+   14 | r61    r61    r61    r61    r61    r61    r61    r61    r61    r61    r61    r61    r61    r61    r61    r61    r61    r61    r61    r61    r61    r61    r61    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+   15 | r38    r38    r38    r38    r38    r38    r38    r38    r38    r38    r38    r38    r38    r38    r38    r38    r38    r38    r38    r38    r38    r38    r38    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+   16 | r39    r39    r39    r39    r39    r39    r39    r39    r39    r39    r39    r39    r39    r39    r39    r39    r39    r39    r39    r39    r39    r39    r39    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+   17 | r63    r63    r63    r63    r63    r63    r63    r63    r63    r63    r63    r63    r63    r63    r63    r63    r63    r63    r63    r63    r63    r63    r63    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+   18 | r64    r64    r64    r64    r64    r64    r64    r64    r64    r64    r64    r64    r64    r64    r64    r64    r64    r64    r64    r64    r64    r64    r64    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+   19 | r62    r62    r62    r62    r62    r62    r62    r62    r62    r62    r62    r62    r62    r62    r62    r62    r62    r62    r62    r62    r62    r62    r62    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+   20 | r65    r65    r65    r65    r65    r65    r65    r65    r65    r65    r65    r65    r65    r65    r65    r65    r65    r65    r65    r65    r65    r65    r65    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+   21 | acc    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+   22 | r1     s1     s2     s3     s4     s5     s6     s7     s8     s9     s10    s11    s12    s13    s14    s15    s16    s17    s18    s19    s20    r1     r1     .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      49     24     25     26     27     28     29     30     31     32     .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+   23 | r2     r2     r2     r2     r2     r2     r2     r2     r2     r2     r2     r2     r2     r2     r2     r2     r2     r2     r2     r2     r2     r2     r2     .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+   24 | r4     r4     r4     r4     r4     r4     r4     r4     r4     r4     r4     r4     r4     r4     r4     r4     r4     r4     r4     r4     r4     r4     r4     .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+   25 | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      s50    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      51     .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+   26 | r5     r5     r5     r5     r5     r5     r5     r5     r5     r5     r5     r5     r5     r5     r5     r5     r5     r5     r5     r5     r5     r5     r5     .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+   27 | .      s1     s2     s3     s4     s5     s6     s7     s8     s9     s10    .      s12    s13    .      s15    s16    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      27     52     .      .      31     32     .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+   28 | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      s53    .      s54    s55    s56    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      57     58     .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+   29 | r66    r66    r66    r66    r66    r66    r66    r66    r66    r66    r66    r66    r66    r66    r66    r66    r66    r66    r66    r66    r66    r66    r66    r66    r66    r66    .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     | .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .      .     
+  235 | r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   s155   s50    s95    s98    s99    s74    s75    s76    s77    s78    r111   r111   s81    s82    s83    s84    s86    s87    s88    s89    s90    s91    s92    s93    s94    s96    s97    r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   r111   .     | .      .      .      .      .      .      .      .      .      .      .      .      287    .      .      .      .      .      .      .      .      .      288    289    .      291    292    113    114    115    116    117    118    119    120    121    122    124    125    126    127    128    .      .      .      .      .      .      290    .     
+  286 | acc    r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   s155   s50    s95    s98    s99    s74    s75    s76    s77    s78    r110   r110   s81    s82    s83    s84    s86    s87    s88    s89    s90    s91    s92    s93    s94    s96    s97    r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   r110   .     | .      .      .      .      .      .      .      .      .      .      .      .      287    .      .      .      .      .      .      .      .      .      288    289    .      291    292    113    114    115    116    117    118    119    120    121    122    124    125    126    127    128    .      .      .      .      .      .      290    .     
+
+  Showing 32 / 334 states on screen.
+  See output/parsing_table.csv for all 334 states.
+
+
+╔══════════════════════════════════════════════════════════════╗
+║                 PART 6 — ADDITIONAL INFORMATION              ║
+╚══════════════════════════════════════════════════════════════╝
+
+  ── Program Analysis (this parse) ──────────────────────────
+  #global_declarations         = 2
+  #function_definitions        = 2
+  #if_without_else             = 2
+  #if_with_else                = 0
+  if_else_max_nesting_depth    = 1
+  #for_loops                   = 2
+  #while_loops                 = 1
+  #do_while_loops              = 1
+  #switch_statements           = 1
+  #return_statements           = 3
+  #pointer_declarations        = 1
+  #integer_constants           = 30
+  #function_calls              = 1
+  #assignments                 = 18
+  #struct_union_declarations   = 1
+  #total_reductions            = 1341
+
+  ── Grammar Statistics ───────────────────────────────────────
+  Productions (grammar rules)  : 318
+  LALR(1) states               : 334
+  Shift/reduce conflicts       : 34  (target: 0)
+  Reduce/reduce conflicts      : 0  (target: 0)
+
+  ── Conflict Resolution Summary ──────────────────────────────
+  1. Dangling-else (S/R)  → %prec LOWER_THAN_ELSE
+     Effect: ELSE attaches to innermost if (C standard).
+
+  2. Operator precedence (S/R) → %left/%right declarations
+     15 levels: = (lowest) ... postfix ++ -- (highest).
+
+  3. Unary vs binary +/- (S/R) → %prec UMINUS/UPLUS
+     Unary -/+ have higher precedence than binary -/+.
+
+  4. TYPEDEF declarator S/R (State 62)
+     → Removed redundant  TYPEDEF type_spec IDENTIFIER ';'
+       (covered by TYPEDEF type_spec declarator_list ';').
+
+  5. case_body_list S/R (States 233 & 284, 38 conflicts)
+     → Replaced  case_body_list stmt  with
+       case_body_list non_case_stmt  (excludes labeled_stmt).
+       CASE/DEFAULT always terminate the case body cleanly.
+
+  ── Key Grammar Features ─────────────────────────────────────
+  - C99 mixed declarations/statements (block_item_list)
+  - Full 15-level expression hierarchy
+  - Structs, unions, enums, typedefs
+  - if/else, for, while, do-while, switch/case
+  - Pointer declarators, array declarators, function pointers
+  - sizeof, address-of, dereference, compound assignment
+  - const/volatile qualifiers, stacked storage classes
+  - C99 for-loop init declarations: for(int i=0; ...)
+
