@@ -1,0 +1,107 @@
+-------------------------------------------------------------
+  CS327 Assignment 4 -- IR Code Generator | LALR(1) Parser
+  Input file : tests/test10.c
+-------------------------------------------------------------
+
++============================================================+
+| SOURCE PROGRAM                                             |
++============================================================+
+    1 | /* test10.c — Combined: functions, loops, conditionals, arithmetic */
+    2 | int factorial(int n) {
+    3 |     if (n <= 1) {
+    4 |         return 1;
+    5 |     }
+    6 |     return n * factorial(n - 1);
+    7 | }
+    8 | 
+    9 | int sum_range(int lo, int hi) {
+   10 |     int total = 0;
+   11 |     int i = lo;
+   12 |     while (i <= hi) {
+   13 |         total = total + i;
+   14 |         i = i + 1;
+   15 |     }
+   16 |     return total;
+   17 | }
+   18 | 
+   19 | int main() {
+   20 |     int f5 = factorial(5);
+   21 |     int s = sum_range(1, 10);
+   22 |     int result;
+   23 |     if (f5 > s) {
+   24 |         result = f5 - s;
+   25 |     } else {
+   26 |         result = s - f5;
+   27 |     }
+   28 |     for (int k = 0; k < 3; k++) {
+   29 |         result = result + k;
+   30 |     }
+   31 |     return result;
+   32 | }
+
+-------------------------------------------------------------
+  ***parsing successful***
+-------------------------------------------------------------
+
++============================================================+
+| INTERMEDIATE CODE  (Three Address Code -- Quadruples)      |
++============================================================+
++-----+-------------------------+-------------+------------+--------+---------+
+| #   | stmt                    | op          | arg1       | arg2   | result  |
++-----+-------------------------+-------------+------------+--------+---------+
+| 0   | begin_func factorial    | begin_func  | factorial  | _      | _       |
+| 1   | t1 = n <= 1             | <=          | n          | 1      | t1      |
+| 2   | jf t1, L0               | jf          | t1         | _      | L0      |
+| 3   | return 1                | return      | 1          | _      | _       |
+| 4   | label L0                | label       | _          | _      | L0      |
+| 5   | t2 = n - 1              | -           | n          | 1      | t2      |
+| 6   | param t2                | param       | t2         | _      | _       |
+| 7   | t3 = call factorial, 1  | call        | factorial  | 1      | t3      |
+| 8   | t4 = n * t3             | *           | n          | t3     | t4      |
+| 9   | return t4               | return      | t4         | _      | _       |
+| 10  | end_func                | end_func    | _          | _      | _       |
+| 11  | begin_func sum_range    | begin_func  | sum_range  | _      | _       |
+| 12  | total = 0               | =           | 0          | _      | total   |
+| 13  | i = lo                  | =           | lo         | _      | i       |
+| 14  | label L1                | label       | _          | _      | L1      |
+| 15  | t5 = i <= hi            | <=          | i          | hi     | t5      |
+| 16  | jf t5, L2               | jf          | t5         | _      | L2      |
+| 17  | t6 = total + i          | +           | total      | i      | t6      |
+| 18  | total = t6              | =           | t6         | _      | total   |
+| 19  | t7 = i + 1              | +           | i          | 1      | t7      |
+| 20  | i = t7                  | =           | t7         | _      | i       |
+| 21  | goto L1                 | goto        | _          | _      | L1      |
+| 22  | label L2                | label       | _          | _      | L2      |
+| 23  | return total            | return      | total      | _      | _       |
+| 24  | end_func                | end_func    | _          | _      | _       |
+| 25  | begin_func main         | begin_func  | main       | _      | _       |
+| 26  | param 5                 | param       | 5          | _      | _       |
+| 27  | t8 = call factorial, 1  | call        | factorial  | 1      | t8      |
+| 28  | f5 = t8                 | =           | t8         | _      | f5      |
+| 29  | param 1                 | param       | 1          | _      | _       |
+| 30  | param 10                | param       | 10         | _      | _       |
+| 31  | t9 = call sum_range, 2  | call        | sum_range  | 2      | t9      |
+| 32  | s = t9                  | =           | t9         | _      | s       |
+| 33  | t10 = f5 > s            | >           | f5         | s      | t10     |
+| 34  | jf t10, L3              | jf          | t10        | _      | L3      |
+| 35  | t11 = f5 - s            | -           | f5         | s      | t11     |
+| 36  | result = t11            | =           | t11        | _      | result  |
+| 37  | goto L4                 | goto        | _          | _      | L4      |
+| 38  | label L3                | label       | _          | _      | L3      |
+| 39  | t12 = s - f5            | -           | s          | f5     | t12     |
+| 40  | result = t12            | =           | t12        | _      | result  |
+| 41  | label L4                | label       | _          | _      | L4      |
+| 42  | k = 0                   | =           | 0          | _      | k       |
+| 43  | label L5                | label       | _          | _      | L5      |
+| 44  | t13 = k < 3             | <           | k          | 3      | t13     |
+| 45  | jf t13, L6              | jf          | t13        | _      | L6      |
+| 46  | t15 = result + k        | +           | result     | k      | t15     |
+| 47  | result = t15            | =           | t15        | _      | result  |
+| 48  | k = k + 1               | +           | k          | 1      | k       |
+| 49  | goto L5                 | goto        | _          | _      | L5      |
+| 50  | label L6                | label       | _          | _      | L6      |
+| 51  | return result           | return      | result     | _      | _       |
+| 52  | end_func                | end_func    | _          | _      | _       |
++-----+-------------------------+-------------+------------+--------+---------+
+  Total quads: 53    Temporaries: t1..t15    Labels: L0..L6
+

@@ -1,0 +1,33 @@
+-------------------------------------------------------------
+  CS327 Assignment 4 -- IR Code Generator | LALR(1) Parser
+  Input file : tests/test_error7.c
+-------------------------------------------------------------
+
++============================================================+
+| SOURCE PROGRAM                                             |
++============================================================+
+    1 | int add(int x, int y) {
+    2 |     return x + y;
+    3 | }
+    4 | 
+    5 | int main() {
+    6 |     int a;
+    7 |     a = add(10 20);
+    8 |     return 0;
+    9 | }
+
+
++--------------------------------------------------------------+
+|                     PARSE ERROR                              |
++--------------------------------------------------------------+
+  Line         : 7
+  Near token   : '20'
+  Lookahead    : INT_CONST (token id 291)
+  Message      : syntax error
+
+  Hints:
+    - Missing ';' at end of statement?
+    - Unmatched '{', '}', '(', or ')'?
+    - Invalid or unsupported construct near line 7?
+    - Declaration after statement (C89 mode)?
+

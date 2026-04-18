@@ -1,0 +1,29 @@
+-------------------------------------------------------------
+  CS327 Assignment 4 -- IR Code Generator | LALR(1) Parser
+  Input file : tests/test_error2.c
+-------------------------------------------------------------
+
++============================================================+
+| SOURCE PROGRAM                                             |
++============================================================+
+    1 | /* test_error2.c — Unmatched parenthesis (syntax error demo) */
+    2 | int main() {
+    3 |     int x = (5 + 3;
+    4 |     return x;
+    5 | }
+
+
++--------------------------------------------------------------+
+|                     PARSE ERROR                              |
++--------------------------------------------------------------+
+  Line         : 3
+  Near token   : ';'
+  Lookahead    : ';' (token id 59)
+  Message      : syntax error
+
+  Hints:
+    - Missing ';' at end of statement?
+    - Unmatched '{', '}', '(', or ')'?
+    - Invalid or unsupported construct near line 3?
+    - Declaration after statement (C89 mode)?
+

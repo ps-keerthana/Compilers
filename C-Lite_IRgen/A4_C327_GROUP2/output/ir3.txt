@@ -1,0 +1,62 @@
+-------------------------------------------------------------
+  CS327 Assignment 4 -- IR Code Generator | LALR(1) Parser
+  Input file : tests/test3.c
+-------------------------------------------------------------
+
++============================================================+
+| SOURCE PROGRAM                                             |
++============================================================+
+    1 | /* test3.c — While loop and Do-While loop */
+    2 | int main() {
+    3 |     int sum = 0;
+    4 |     int i = 1;
+    5 |     while (i <= 10) {
+    6 |         sum = sum + i;
+    7 |         i = i + 1;
+    8 |     }
+    9 |     int count = 5;
+   10 |     int product = 1;
+   11 |     do {
+   12 |         product = product * count;
+   13 |         count = count - 1;
+   14 |     } while (count > 0);
+   15 |     return sum + product;
+   16 | }
+
+-------------------------------------------------------------
+  ***parsing successful***
+-------------------------------------------------------------
+
++============================================================+
+| INTERMEDIATE CODE  (Three Address Code -- Quadruples)      |
++============================================================+
++-----+-----------------------+-------------+----------+----------+----------+
+| #   | stmt                  | op          | arg1     | arg2     | result   |
++-----+-----------------------+-------------+----------+----------+----------+
+| 0   | begin_func main       | begin_func  | main     | _        | _        |
+| 1   | sum = 0               | =           | 0        | _        | sum      |
+| 2   | i = 1                 | =           | 1        | _        | i        |
+| 3   | label L0              | label       | _        | _        | L0       |
+| 4   | t1 = i <= 10          | <=          | i        | 10       | t1       |
+| 5   | jf t1, L1             | jf          | t1       | _        | L1       |
+| 6   | t2 = sum + i          | +           | sum      | i        | t2       |
+| 7   | sum = t2              | =           | t2       | _        | sum      |
+| 8   | t3 = i + 1            | +           | i        | 1        | t3       |
+| 9   | i = t3                | =           | t3       | _        | i        |
+| 10  | goto L0               | goto        | _        | _        | L0       |
+| 11  | label L1              | label       | _        | _        | L1       |
+| 12  | count = 5             | =           | 5        | _        | count    |
+| 13  | product = 1           | =           | 1        | _        | product  |
+| 14  | label L2              | label       | _        | _        | L2       |
+| 15  | t4 = product * count  | *           | product  | count    | t4       |
+| 16  | product = t4          | =           | t4       | _        | product  |
+| 17  | t5 = count - 1        | -           | count    | 1        | t5       |
+| 18  | count = t5            | =           | t5       | _        | count    |
+| 19  | t6 = count > 0        | >           | count    | 0        | t6       |
+| 20  | jt t6, L2             | jt          | t6       | _        | L2       |
+| 21  | t7 = sum + product    | +           | sum      | product  | t7       |
+| 22  | return t7             | return      | t7       | _        | _        |
+| 23  | end_func              | end_func    | _        | _        | _        |
++-----+-----------------------+-------------+----------+----------+----------+
+  Total quads: 24    Temporaries: t1..t7    Labels: L0..L2
+

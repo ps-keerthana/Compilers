@@ -1,0 +1,29 @@
+-------------------------------------------------------------
+  CS327 Assignment 4 -- IR Code Generator | LALR(1) Parser
+  Input file : tests/test_error3.c
+-------------------------------------------------------------
+
++============================================================+
+| SOURCE PROGRAM                                             |
++============================================================+
+    1 | int main() {
+    2 |     int a;
+    3 |     a = 5 + ;
+    4 |     return 0;
+    5 | }
+
+
++--------------------------------------------------------------+
+|                     PARSE ERROR                              |
++--------------------------------------------------------------+
+  Line         : 3
+  Near token   : ';'
+  Lookahead    : ';' (token id 59)
+  Message      : syntax error
+
+  Hints:
+    - Missing ';' at end of statement?
+    - Unmatched '{', '}', '(', or ')'?
+    - Invalid or unsupported construct near line 3?
+    - Declaration after statement (C89 mode)?
+

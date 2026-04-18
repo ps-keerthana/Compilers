@@ -1,0 +1,32 @@
+-------------------------------------------------------------
+  CS327 Assignment 4 -- IR Code Generator | LALR(1) Parser
+  Input file : tests/test_error1.c
+-------------------------------------------------------------
+
++============================================================+
+| SOURCE PROGRAM                                             |
++============================================================+
+    1 | /* test_error1.c — Missing semicolon (syntax error demo) */
+    2 | int main() {
+    3 |     int x = 10
+    4 |     int y = 20;
+    5 |     return x + y;
+    6 | }
+    7 | 
+    8 | 
+
+
++--------------------------------------------------------------+
+|                     PARSE ERROR                              |
++--------------------------------------------------------------+
+  Line         : 4
+  Near token   : 'int'
+  Lookahead    : int (token id 258)
+  Message      : syntax error
+
+  Hints:
+    - Missing ';' at end of statement?
+    - Unmatched '{', '}', '(', or ')'?
+    - Invalid or unsupported construct near line 4?
+    - Declaration after statement (C89 mode)?
+

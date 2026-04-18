@@ -1,0 +1,16 @@
+-------------------------------------------------------------
+  CS327 Assignment 4 -- IR Code Generator | LALR(1) Parser
+  Input file : tests/test_error4.c
+-------------------------------------------------------------
+
++============================================================+
+| SOURCE PROGRAM                                             |
++============================================================+
+    1 | #include <stdio.h>
+    2 | 
+    3 | int main() {
+    4 |     int a = 10;
+    5 |     return 0;
+    6 | }
+
+***lexing terminated*** [lexer error]: preprocessor directives not allowed (line 1)

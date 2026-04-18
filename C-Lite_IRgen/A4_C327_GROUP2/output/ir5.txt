@@ -1,0 +1,61 @@
+-------------------------------------------------------------
+  CS327 Assignment 4 -- IR Code Generator | LALR(1) Parser
+  Input file : tests/test5.c
+-------------------------------------------------------------
+
++============================================================+
+| SOURCE PROGRAM                                             |
++============================================================+
+    1 | /* test5.c — Functions with return values and calls */
+    2 | int square(int x) {
+    3 |     return x * x;
+    4 | }
+    5 | int add(int a, int b) {
+    6 |     return a + b;
+    7 | }
+    8 | int main() {
+    9 |     int a = square(4);
+   10 |     int b = add(a, 6);
+   11 |     int c = add(square(2), square(3));
+   12 |     return c;
+   13 | }
+
+-------------------------------------------------------------
+  ***parsing successful***
+-------------------------------------------------------------
+
++============================================================+
+| INTERMEDIATE CODE  (Three Address Code -- Quadruples)      |
++============================================================+
++-----+----------------------+-------------+---------+--------+---------+
+| #   | stmt                 | op          | arg1    | arg2   | result  |
++-----+----------------------+-------------+---------+--------+---------+
+| 0   | begin_func square    | begin_func  | square  | _      | _       |
+| 1   | t1 = x * x           | *           | x       | x      | t1      |
+| 2   | return t1            | return      | t1      | _      | _       |
+| 3   | end_func             | end_func    | _       | _      | _       |
+| 4   | begin_func add       | begin_func  | add     | _      | _       |
+| 5   | t2 = a + b           | +           | a       | b      | t2      |
+| 6   | return t2            | return      | t2      | _      | _       |
+| 7   | end_func             | end_func    | _       | _      | _       |
+| 8   | begin_func main      | begin_func  | main    | _      | _       |
+| 9   | param 4              | param       | 4       | _      | _       |
+| 10  | t3 = call square, 1  | call        | square  | 1      | t3      |
+| 11  | a = t3               | =           | t3      | _      | a       |
+| 12  | param a              | param       | a       | _      | _       |
+| 13  | param 6              | param       | 6       | _      | _       |
+| 14  | t4 = call add, 2     | call        | add     | 2      | t4      |
+| 15  | b = t4               | =           | t4      | _      | b       |
+| 16  | param 2              | param       | 2       | _      | _       |
+| 17  | t5 = call square, 1  | call        | square  | 1      | t5      |
+| 18  | param 3              | param       | 3       | _      | _       |
+| 19  | t6 = call square, 1  | call        | square  | 1      | t6      |
+| 20  | param t5             | param       | t5      | _      | _       |
+| 21  | param t6             | param       | t6      | _      | _       |
+| 22  | t7 = call add, 2     | call        | add     | 2      | t7      |
+| 23  | c = t7               | =           | t7      | _      | c       |
+| 24  | return c             | return      | c       | _      | _       |
+| 25  | end_func             | end_func    | _       | _      | _       |
++-----+----------------------+-------------+---------+--------+---------+
+  Total quads: 26    Temporaries: t1..t7    Labels: (none)
+

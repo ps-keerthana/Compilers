@@ -1,0 +1,61 @@
+-------------------------------------------------------------
+  CS327 Assignment 4 -- IR Code Generator | LALR(1) Parser
+  Input file : tests/test9.c
+-------------------------------------------------------------
+
++============================================================+
+| SOURCE PROGRAM                                             |
++============================================================+
+    1 | /* test9.c — Pointers and address-of / dereference */
+    2 | int main() {
+    3 |     int a = 42;
+    4 |     int *p;
+    5 |     p = &a;
+    6 |     int b = *p;
+    7 |     *p = 100;
+    8 |     int arr[3];
+    9 |     arr[0] = 10;
+   10 |     arr[1] = 20;
+   11 |     arr[2] = arr[0] + arr[1];
+   12 |     return b + arr[2];
+   13 | }
+
+-------------------------------------------------------------
+  ***parsing successful***
+-------------------------------------------------------------
+
++============================================================+
+| INTERMEDIATE CODE  (Three Address Code -- Quadruples)      |
++============================================================+
++-----+------------------------+-------------+--------+--------+---------+
+| #   | stmt                   | op          | arg1   | arg2   | result  |
++-----+------------------------+-------------+--------+--------+---------+
+| 0   | begin_func main        | begin_func  | main   | _      | _       |
+| 1   | a = 42                 | =           | 42     | _      | a       |
+| 2   | t1 = & a               | addr        | a      | _      | t1      |
+| 3   | p = t1                 | =           | t1     | _      | p       |
+| 4   | t2 = deref p           | deref       | p      | _      | t2      |
+| 5   | b = t2                 | =           | t2     | _      | b       |
+| 6   | store 100 -> [p]       | store       | 100    | _      | p       |
+| 7   | t4 = elemaddr arr[0]   | elemaddr    | arr    | 0      | t4      |
+| 8   | t5 = deref t4          | deref       | t4     | _      | t5      |
+| 9   | store 10 -> [t4]       | store       | 10     | _      | t4      |
+| 10  | t6 = elemaddr arr[1]   | elemaddr    | arr    | 1      | t6      |
+| 11  | t7 = deref t6          | deref       | t6     | _      | t7      |
+| 12  | store 20 -> [t6]       | store       | 20     | _      | t6      |
+| 13  | t8 = elemaddr arr[2]   | elemaddr    | arr    | 2      | t8      |
+| 14  | t9 = deref t8          | deref       | t8     | _      | t9      |
+| 15  | t10 = elemaddr arr[0]  | elemaddr    | arr    | 0      | t10     |
+| 16  | t11 = deref t10        | deref       | t10    | _      | t11     |
+| 17  | t12 = elemaddr arr[1]  | elemaddr    | arr    | 1      | t12     |
+| 18  | t13 = deref t12        | deref       | t12    | _      | t13     |
+| 19  | t14 = t11 + t13        | +           | t11    | t13    | t14     |
+| 20  | store t14 -> [t8]      | store       | t14    | _      | t8      |
+| 21  | t15 = elemaddr arr[2]  | elemaddr    | arr    | 2      | t15     |
+| 22  | t16 = deref t15        | deref       | t15    | _      | t16     |
+| 23  | t17 = b + t16          | +           | b      | t16    | t17     |
+| 24  | return t17             | return      | t17    | _      | _       |
+| 25  | end_func               | end_func    | _      | _      | _       |
++-----+------------------------+-------------+--------+--------+---------+
+  Total quads: 26    Temporaries: t1..t17    Labels: (none)
+

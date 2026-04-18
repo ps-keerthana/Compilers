@@ -1,0 +1,79 @@
+-------------------------------------------------------------
+  CS327 Assignment 4 -- IR Code Generator | LALR(1) Parser
+  Input file : tests/test2.c
+-------------------------------------------------------------
+
++============================================================+
+| SOURCE PROGRAM                                             |
++============================================================+
+    1 | /* test2.c — If / If-else conditional statements */
+    2 | int main() {
+    3 |     int x = 10;
+    4 |     int y = 20;
+    5 |     int max;
+    6 |     if (x > y) {
+    7 |         max = x;
+    8 |     } else {
+    9 |         max = y;
+   10 |     }
+   11 |     if (max > 15) {
+   12 |         max = max + 1;
+   13 |     }
+   14 |     int grade = 75;
+   15 |     int result = 0;
+   16 |     if (grade >= 90) {
+   17 |         result = 4;
+   18 |     }
+   19 |     if (grade >= 75) {
+   20 |         result = 3;
+   21 |     }
+   22 |     if (grade < 60) {
+   23 |         result = 2;
+   24 |     }
+   25 |     return result;
+   26 | }
+
+-------------------------------------------------------------
+  ***parsing successful***
+-------------------------------------------------------------
+
++============================================================+
+| INTERMEDIATE CODE  (Three Address Code -- Quadruples)      |
++============================================================+
++-----+-------------------+-------------+---------+--------+---------+
+| #   | stmt              | op          | arg1    | arg2   | result  |
++-----+-------------------+-------------+---------+--------+---------+
+| 0   | begin_func main   | begin_func  | main    | _      | _       |
+| 1   | x = 10            | =           | 10      | _      | x       |
+| 2   | y = 20            | =           | 20      | _      | y       |
+| 3   | t1 = x > y        | >           | x       | y      | t1      |
+| 4   | jf t1, L0         | jf          | t1      | _      | L0      |
+| 5   | max = x           | =           | x       | _      | max     |
+| 6   | goto L1           | goto        | _       | _      | L1      |
+| 7   | label L0          | label       | _       | _      | L0      |
+| 8   | max = y           | =           | y       | _      | max     |
+| 9   | label L1          | label       | _       | _      | L1      |
+| 10  | t2 = max > 15     | >           | max     | 15     | t2      |
+| 11  | jf t2, L2         | jf          | t2      | _      | L2      |
+| 12  | t3 = max + 1      | +           | max     | 1      | t3      |
+| 13  | max = t3          | =           | t3      | _      | max     |
+| 14  | label L2          | label       | _       | _      | L2      |
+| 15  | grade = 75        | =           | 75      | _      | grade   |
+| 16  | result = 0        | =           | 0       | _      | result  |
+| 17  | t4 = grade >= 90  | >=          | grade   | 90     | t4      |
+| 18  | jf t4, L3         | jf          | t4      | _      | L3      |
+| 19  | result = 4        | =           | 4       | _      | result  |
+| 20  | label L3          | label       | _       | _      | L3      |
+| 21  | t5 = grade >= 75  | >=          | grade   | 75     | t5      |
+| 22  | jf t5, L4         | jf          | t5      | _      | L4      |
+| 23  | result = 3        | =           | 3       | _      | result  |
+| 24  | label L4          | label       | _       | _      | L4      |
+| 25  | t6 = grade < 60   | <           | grade   | 60     | t6      |
+| 26  | jf t6, L5         | jf          | t6      | _      | L5      |
+| 27  | result = 2        | =           | 2       | _      | result  |
+| 28  | label L5          | label       | _       | _      | L5      |
+| 29  | return result     | return      | result  | _      | _       |
+| 30  | end_func          | end_func    | _       | _      | _       |
++-----+-------------------+-------------+---------+--------+---------+
+  Total quads: 31    Temporaries: t1..t6    Labels: L0..L5
+
